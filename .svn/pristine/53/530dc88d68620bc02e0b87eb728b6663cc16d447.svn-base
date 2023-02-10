@@ -1,0 +1,17 @@
+﻿using DrugStoreCore.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DrugStoreInfrastructure.Services.Maps
+{
+    public interface IMapsService
+    {
+        Task<ResponseViewModel<List<CoordinatesViewModel>>> Coordinates();
+        Task<ResponseViewModel<List<PharmacyInfoWithCoordinatesViewModel>>> PharmacyInfoWithCoordinates();
+        Task<ResponseViewModel<PharmacyNotesViewModel>>
+                            AddPharmacyNote(PharmacyNotesViewModel note);
+    }
+}

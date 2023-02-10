@@ -1,0 +1,758 @@
+﻿@section Styles{
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+
+    @*<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    *@
+
+    <style>
+        tr.group,
+        tr.group:hover {
+            background-color: #ddd !important;
+        }
+
+        .select2-selection.select2-selection--single {
+            background-color: #E3E3E3;
+        }
+
+        .filter {
+            position: relative;
+        }
+
+            .filter i {
+                position: absolute;
+                left: 20px;
+                top: calc(50% - 7px);
+                color: #999
+            }
+
+            .filter img {
+                position: absolute;
+                left: 20px;
+                top: calc(50% - 10px);
+            }
+    </style>
+}
+
+
+<div class="d-flex justify-content-between pb-2 arabic-Div row" style="border-bottom: 3px solid">
+    <div class="font-weight-bolder text-nowrap  col-lg-2 col-sm-12" style="line-height: 40px;">
+        @localizer["Current Orders"]
+    </div>
+    <div class="col-md-7 col-lg-7 col-sm-12">
+        <div class="align-items-center">
+            <div class="d-flex row">
+
+                <div class="col-md-6 col-lg-3  col-sm-12 px-1 filter">
+                    <div class="input-group" id="defaultrange">
+                        <button class="btn btn-light btn-out  w-100 font-weight-bold" style="background-color:#E3E3E3;border: 1px solid #aaa;color:#999" name="daterange">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            @localizer["Date"]
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 col-sm-12 px-1 filter">
+
+                    <select type="text" class="form-control" id="drug-name">
+                    </select>
+                    <i class="fas fa-box" aria-hidden="true"></i>
+                </div>
+
+                <div class=" col-md-6 col-lg-3 col-sm-12 px-1 filter">
+                    <button type="button" class="btn p-2  w-100 font-weight-bold" style="background:#E3E3E3;border: 1px solid #aaa;color:#999" data-toggle="modal" data-target="#price-range-modal">
+                        <i class="fa fa-shekel-sign" aria-hidden="true"></i>
+                        @localizer["Price Range"]
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="price-range-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">@localizer["Price Range"]</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="number" class="form-control" name="price_range_start" value="" placeholder="@localizer["from"]" />
+                                    <br />
+                                    <input type="number" class="form-control" name="price_range_end" value="" placeholder="@localizer["to"]" />
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@localizer["Close"]</button>
+                                    <button type="button" class="btn btn-primary" id="price-range">@localizer["Save changes"]</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of modal-->
+                </div>
+
+                <div class="col-md-6 col-lg-3 col-sm-12 px-1 filter">
+
+                    <select type="text" class="form-control" id="Pharmacy-name">
+                    </select>
+                    <img src="~/icons/phamacy-icon2.png" height="20" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 mt-2 mt-md-2 col-sm-12">
+        <button class="btn btn-primary" id="export"><i class="fa fa-print"></i> @localizer["Export & Print"]</button>
+    </div>
+</div>
+
+<div class="card-body">
+
+
+    <br />
+    <table id="example" class="table table-responsive-lg table-responsive-xl row-border hover table-checkable" style="width:100%;margin-top: 13px !important">
+        <thead>
+            <tr>
+                <th>pharmacyName</th>
+                <th>createdAt</th>
+                <th>drugId</th>
+                <th>drugName</th>
+                <th>quantity</th>
+                <th>pricePerUnit(NIS)</th>
+                <th>totalPrice(NIS)</th>
+                <th>pharmacyOrderId</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+
+<!-- Edit Order Modal -->
+<div class="modal fade" id="edit-order-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive ">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Drug Id</th>
+                                <th scope="col">Drug Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price Per Unit</th>
+                                <th scope="col">Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="submit-modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- The Modal To Show Loader -->
+<div class="modal" id="LoaderModal">
+    <div class="modal-dialog">
+        <div class="">
+            <div class="loader"></div>
+            <button class="d-none" type="button" id="closeLaoder" data-dismiss="modal"></button>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="d-none" id="showLaoder" data-toggle="modal" data-target="#LoaderModal">
+</button>
+
+
+
+
+<!-- End Edit Order Modal -->
+@section Scripts{
+
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+
+    let search_obj = {
+        "DrugId": 0,
+        "PharmacyId": null,
+        "MinTotalPrice": 0,
+        "MaxTotalPrice": 0,
+        "From": null,
+        "To": null,
+        "MonthName": null,
+        "PeriodOfTime": null,
+        "Status": 0,
+    };
+
+    $(document).ready(function () {
+
+        // drug name select2
+        $('#drug-name').select2({
+            placeholder: "@localizer["Drug"]",
+            allowClear:true,
+            ajax: {
+                url: "/drug/AllDrugs",
+                dataType: "json",
+                type: "GET",
+                data: function (params) {
+                    return {
+                        search: params.term,
+                        page: params.page
+                    }
+
+                }
+            },
+             templateResult: function(data) {
+
+                    if (!data.id) {
+                      return data.text;
+                    }
+
+                    var $res = $('<div class="font-weight-light" style="font-size:15px;"></div>');
+
+                    $res.text(data.text);
+                    //$res.addClass('wrap');
+
+                    return $res;
+                  }, //end of templateResult
+            processResults: function (data, params) {
+
+                return {
+                    results: data
+
+                };
+            }, //end of processResults
+            cache: true
+        });
+
+
+
+
+
+
+        // $('#drug-name').val(null).trigger('change');
+
+
+        //pharmachy name select2
+
+             $('#Pharmacy-name').select2({
+            placeholder: "@localizer["Pharmacy"]",
+            allowClear:true,
+            ajax: {
+                url: "/DisplayOrders/GetAllPharmacy",
+                dataType: "json",
+                type: "GET",
+                data: function (params) {
+                    return {
+                        search: params.term,
+                        page: params.page
+                    }
+
+                }
+            },
+             templateResult: function(data) {
+
+                    if (!data.id) {
+                      return data.text;
+                    }
+
+                    var $res = $('<div class="font-weight-light" style="font-size:15px;"></div>');
+
+                    $res.text(data.text);
+                    //$res.addClass('wrap');
+
+                    return $res;
+                  }, //end of templateResult
+            processResults: function (data, params) {
+
+                return {
+                    results: data
+
+                };
+            }, //end of processResults
+            cache: true
+        });
+
+
+
+    });
+
+
+    var KTDatatablesDataSourceAjaxServer = function () {
+
+        $.fn.dataTable.Api.register('column().title()', function () {
+            return $(this.header()).text().trim();
+        });
+
+        var initTable1 = function () {
+            //var table = $('#example');
+
+            // begin first table
+            var table = $('#example').DataTable({
+                //order: [[8, 'desc']],
+                drawCallback: function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({ page: 'current' }).nodes();
+                    var last = null;
+                    var columns = [0, 1];
+
+                    for (let c = 0; c < columns.length; c++) {
+                        var colNo = columns[c];
+                        if (colNo == 0) {
+                            api.column(colNo, { page: 'current' }).data().each(function (group, i) {
+                                if (last !== group) {
+
+                                    $(rows).eq(i).before(
+                                        '<tr class="group"><td colspan="8">' + group + '</td></tr>'
+                                    );
+
+                                    last = group;
+                                }
+                            });
+                        } else {
+                            api.column(colNo, { page: 'current' }).data().each(function (group, i) {
+                                if (last !== group) {
+
+                                    $(rows).eq(i).before(
+
+                                        `<tr class="group" style="background-color:#D4EDF9 !important;">
+                                                         <td colspan="8">
+                                                         <div class="d-flex justify-content-between">
+
+                                                                <div>
+                                                                     <span class= "order-datetime">${group}</span>
+                                                                 </div>
+
+                                                                <div>
+                                                                 <span class="">Total Price: ${api.row(i).data().totalPricePharmacyOrders.toFixed(2)} NIS </span>
+                                                                <input class="visible approve-checkbox"  type="checkbox" value=""  data-id="${api.row(i).data().pharmacyOrderId}">
+
+                                                                    <a class="edit-order" data-id="${api.row(i).data().pharmacyOrderId}" data-toggle="modal" data-target="#exampleModalLong" style="">
+                                                                        <i class="fa fa-edit">
+                                                                        </i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+
+                                                         </td>
+                                                     </tr>`
+                                    );
+
+
+                                    last = group;
+                                }
+                            });
+                        }
+                    }
+
+                },
+                responsive: true,
+                searchDelay: 500,
+                processing: true,
+                serverSide: true,
+                dom: '<"row"lr><"row"<"col-xs-12 col-lg-12"t>><"row"<"col-sm-6"i><"col-sm-6"p>>',
+                language: {
+                "infoFiltered": "",
+                "processing": `<div style="margin-top:4%"><i class="fa fa-spinner fa-spin fa-3x fa-fw" ></i><span class="sr-only">Loading...</span></div> `
+                    },
+
+                ajax: {
+                    url: '/DisplayOrders/AdminCurrentOrders?pharmacyOrdersId=@ViewBag.pharmacyOrdersId',
+                    type: 'POST',
+                    dataType: "json",
+                    data: function (d) {
+                        d.DataTableFilterDto = search_obj;
+
+                        d.columnsDef = ['pharmacyName', 'createdAtString', 'drugId', 'drugName', 'quantity'
+                            , 'pricePerUnit', 'totalPrice', 'pharmacyOrderId'
+                            // 'Actions'
+                        ]
+                    }
+                },
+                columns: [
+                    { data: 'pharmacyName', name: "pharmacyName", orderable: false },
+                    { data: 'createdAtString', name: "createdAt", orderable: false },
+                    { data: 'drugId', name: "drugId", orderable: false, className: "text-center" },
+                    { data: 'drugName', name: "drugName", orderable: false },
+                    { data: 'quantity', name: "quantity", orderable: false, className: "text-center" },
+                    { data: 'pricePerUnit', name: "pricePerUnit", orderable: false, className: "text-center" },
+                    { data: 'totalPrice', name: "totalPrice", orderable: false, className: "text-center" },
+                    { data: 'pharmacyOrderId', name: "pharmacyOrderId", orderable: false },
+                ],
+
+
+                columnDefs: [
+                    {
+                        targets: -1,
+                        title: 'Actions',
+                        orderable: false,
+                        visible:false,
+                        render: function (data, type, full, meta) {
+                            return ``;
+                        },
+                    },
+                    {
+                        targets: 0, "visible": false
+                    },
+                    {
+                        targets: 1, "visible": false
+                    },
+                   {
+                        targets: -2,
+                        render:(data,type,full,meta) => data.toFixed(2)
+
+                   },
+                   {
+                       targets:-3,
+                       render:(data,type,full,meta) => data.toFixed(2)
+                   }
+
+
+                ],
+            });
+            //    $('#inp').on('keyup', function() {
+            //    table.search($(this).val(), 'DrugName');
+            //    table.draw()
+            //});
+
+
+            //event on pharmacys select2
+            $('body').on('change', '#Pharmacy-name', function (e) {
+                let selected_val = $(this).find(':selected').val();
+                console.log(selected_val)
+                Object.assign(search_obj, { "PharmacyId": selected_val })
+                console.log("ass")
+                console.log(search_obj)
+                table.draw();
+
+            }); //end of event on pharmacys select2
+
+
+
+            //event on price range
+            $('#price-range').on('click', function () {
+                price_range_start = +$("[name='price_range_start']").val();
+                price_range_end = +$("[name='price_range_end']").val();
+
+                if (price_range_start >= price_range_end) {
+                    $("[name='price_range_start']").addClass('border-danger');
+                    $("[name='price_range_end']").addClass('border-danger');
+                    return false
+                }
+
+                $('#price-range-modal').modal('hide')
+
+                $("[name='price_range_start']").removeClass('border-danger');
+                $("[name='price_range_end']").removeClass('border-danger');
+
+                console.log(price_range_start);
+                console.log(price_range_end);
+
+                Object.assign(search_obj, { "MinTotalPrice": price_range_start })
+                Object.assign(search_obj, { "MaxTotalPrice": price_range_end })
+
+                console.log(search_obj)
+                table.draw();
+            }); //end of price range event
+
+
+
+            //event on drugs select2
+            $('body').on('change', '#drug-name', function (e) {
+                let selected_val = $(this).find(':selected').val();
+                console.log(selected_val)
+                Object.assign(search_obj, { "DrugId": +selected_val })
+                console.log(search_obj)
+                table.draw();
+            }); //end of event on drugs select2
+
+
+            //event on daterange
+            $(function () {
+                $('button[name="daterange"]').daterangepicker({
+                            showDropdowns: true,
+                            opens: 'left',
+                            minYear: 2021,
+                            autoApply: true,
+                            ranges: {
+                                'Today': [moment(), moment()],
+                                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                            },
+                        "alwaysShowCalendars": true,
+                        "linkedCalendars": false,
+                        "startDate": moment().subtract(10,'days'),
+                        "endDate": moment()
+                }, function (start, end, label) {
+                    //console.log(start.format('MM/DD/YYYY'));
+                    //console.log(end.format('MM/DD/YYYY'));
+                    Object.assign(search_obj, { "From": start.format('MM/DD/YYYY') })
+                    Object.assign(search_obj, { "To": end.format('MM/DD/YYYY') })
+                    console.log(search_obj)
+                    table.draw();
+
+                });
+            });//end of event on daterange
+
+
+
+            //event when Process Pharmacy Orders
+            let process_pharmacyOrdersIds = [];
+            table.on('draw', function () {
+                $(".approve-checkbox").each(function (index) {
+                    that = $(this)
+                    var id = that.data("id")
+                    that.attr("checked", !process_pharmacyOrdersIds.includes(id))
+                    $.each(process_pharmacyOrdersIds, function (index, value) {
+                        //console.log(value)
+                        if (that.data("id") == value) {
+                            that.attr("checked", false)
+                        }
+                    });
+
+                })//end of each
+            });//end of draw event
+
+
+            $("body").on("click", ".approve-checkbox", function () {
+
+                if ($(this).prop("checked") == false) {
+                    process_pharmacyOrdersIds.push(+$(this).data("id"));
+                    console.log(process_pharmacyOrdersIds);
+                } else {
+                    process_pharmacyOrdersIds.splice(process_pharmacyOrdersIds.indexOf(parseInt($(this).data("id"))), 1)
+                    console.log(process_pharmacyOrdersIds);
+                }
+
+            });//end of click event
+
+
+            //event on export button
+            $("body").on("click", "#export", function (e) {
+                $("#showLaoder").click();
+                //console.log(process_pharmacyOrdersIds);
+                var url = "Files/" + new Date(Date.now()).toISOString();
+
+
+                $.ajax({
+                    url: "/DisplayOrders/ProcessPendingOrdersAndExportExcel",
+                    type: "POST",
+                    //dataType:"json",
+                    data: { pharmacyordersId: process_pharmacyOrdersIds },
+                    xhr: function () {
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 2) {
+                                if (xhr.status == 200) {
+                                    xhr.responseType = "blob";
+                                } else {
+                                    xhr.responseType = "text";
+                                }
+                            }
+                        };
+                        return xhr;
+                    },
+                    success: function (data) {
+
+                        if (data.size <= 28) {
+
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Erorr',
+                                text: 'No Data Found',
+                            })
+                            $("#closeLaoder").click();
+                            return false;
+                        };
+
+                        //Convert the Byte Data to BLOB object.
+                        var blob = new Blob([data], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+
+                        //Check the Browser type and download the File.
+                        var isIE = false || !!document.documentMode;
+                        if (isIE) {
+                            window.navigator.msSaveBlob(blob, new Date(Date.now()).toISOString() + ".xlsx");
+                            $("#closeLaoder").click();
+                        } else {
+                            var url = window.URL || window.webkitURL;
+                            link = url.createObjectURL(blob);
+                            var a = $("<a />");
+                            a.attr("download", new Date(Date.now()).toISOString() + ".xlsx");
+                            a.attr("href", link);
+                            $("body").append(a);
+                            a[0].click();
+                            $("body").remove(a);
+                        }
+                          $('#example').DataTable().ajax.reload();
+                          $("#closeLaoder").click();
+                    },
+                    error: function (e) {
+                        $("#closeLaoder").click();
+                    }
+                })
+            });//end of export button event
+
+
+
+        };
+
+        return {
+
+            //main function to initiate the module
+            init: function () {
+                initTable1();
+            },
+
+        };
+
+    }();
+
+    jQuery(document).ready(function () {
+        KTDatatablesDataSourceAjaxServer.init();
+    });
+
+
+    //--event on edit Order
+    $("body").on("click", ".edit-order", function (e) {
+        $("#edit-order-modal").modal("show");
+        let PharmacyorderId = $(this).data("id");
+
+        $.ajax({
+            url: `/DisplayOrders/EditOrderByAdmin?id=${PharmacyorderId}`,
+            type: "GET",
+            success: function (data) {
+                $("#edit-order-modal tbody").html(``)
+                $.each(data, function (index, value) {
+                    console.log(value)
+                    $("#edit-order-modal tbody").append(`
+                        <tr class="edit-order-row">
+                            <th data-drug-id="${value.drugIdParam}" data-order-id="${value.orderId}" scope="row">${value.drugId}</th>
+                            <td>${value.drugName}</td>
+                            <td><input type="number" min="1" class="form-control w-25 quantity" value="${value.quantity}" /></td>
+                            <td class="pricePerUnit">${value.pricePerUnit}</td>
+                            <td class="total-price">${value.totalPrice}</td>
+                        </tr>
+                        `)
+                })
+
+            }
+
+        })
+
+    })
+
+
+    //--event when approve pharmacy order
+    //$("body").on("click",".approve-order",function(e){
+    //     let url = ''
+    //        let id = $(this).data('id');
+    //        let parent = $(this).closest('tr');
+    //        swal.fire({
+    //            title: 'هل أنت متأكد؟',
+    //            text: "!",
+    //            type: 'warning',
+    //            showCancelButton: true,
+    //            cancelButtonText: 'Cancel',
+    //            confirmButtonText: 'OK',
+    //            preConfirm: function () {
+    //                $.ajax({
+    //                    url: url.replace(':id', id),
+    //                    type: 'delete',
+    //                    data: {
+    //                    },
+    //                    success: function (response) {
+    //                        swal.fire({
+    //                            title: 'Completed',
+    //                            text: 'The Order was Completed',
+    //                            type: 'success',
+    //                            showConfirmButton: false,
+    //                            timer: 1500,
+    //                        })
+    //                        parent.hide(500)
+    //                    }
+    //                });
+    //            }
+    //        });
+
+
+    //})
+
+
+
+
+    //
+
+
+
+
+
+    //event when change quantity in modal
+    $('body').on("change", ".quantity", function (e) {
+        quantity = $(this).val();
+        pricePerUnit = +$(this).closest("tr").find(".pricePerUnit").text();
+
+        $(this).closest("tr").find(".total-price").text(quantity * pricePerUnit);
+
+
+    });
+
+
+    //event on submit modal button in edit order
+
+    $('body').on('click', "#submit-modal", function () {
+        let data = [];
+        $("tr.edit-order-row").each(function (i) {
+            data[i] = {
+                "id": +$(this).find('th').data('order-id'),
+                "drugId": +$(this).find('th').data('drug-id'),
+                "quantity": +$(this).find('.quantity').val()
+            }
+        })
+        console.log(data)
+        // $.post("/DrugStoreApp/DisplayOrders/UpdateOrderByAdmin",{orderDtos:data},function(data){alert(10) })
+
+        $.ajax({
+            url: "/DisplayOrders/UpdateOrderByAdmin",
+            type: "POST",
+            data: { orderDtos: data },
+            dataType: "json",
+            success: function (data) {
+                console.log("dsddd")
+                $("#edit-order-modal").modal("hide");
+                Swal.fire({
+                    icon: 'success',
+                    title: "This Request is sent",
+                    text: data.message
+                });
+                $('#example').DataTable().ajax.reload();
+            },
+            error: (e) => {
+                console.log(e);
+            }
+        });
+
+    })
+
+
+    </script>
+}

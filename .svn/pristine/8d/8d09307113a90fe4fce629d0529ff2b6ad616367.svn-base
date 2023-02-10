@@ -1,0 +1,946 @@
+﻿body {
+    background: #FFF;
+    overflow-x: hidden;
+   
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*Start Scroll Code*/
+/* width */
+::-webkit-scrollbar {
+
+}
+/*Track*/
+::-webkit-scrollbar-track {
+   
+}
+/*Handle*/
+::-webkit-scrollbar-thumb {
+
+}
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      
+    }
+/*End Scroll Code*/
+.badge {
+  
+    right: 23px;
+
+}
+
+.nav-container {
+
+    top: 0;
+    left: 0;
+    right: 0;
+  
+    direction: rtl;
+}
+
+    .nav-container ul:first-of-type {
+        margin-left:auto !important;
+        margin-right:0 !important;
+    }
+
+    nav button[data-toggle=collapse] {
+        color: rgba(0,0,0,16%);
+    }
+
+
+.dropdown-with-image img {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.right-navbar.navbar-nav .dropdown-menu::after {
+    
+}
+
+.right-navbar.navbar-nav .dropdown-menu {
+    left: 0;
+    right: unset;
+    direction: rtl;
+}
+
+    .right-navbar.navbar-nav .dropdown-menu .dropdown-item {
+        text-align: right;
+    }
+
+    .right-navbar.navbar-nav .dropdown-menu .form-inline {
+        margin-bottom: 0
+    }
+
+    .right-navbar.navbar-nav .dropdown-menu button {
+        padding: 0;
+        line-height: initial;
+        font-weight: bold;
+    }
+
+.dropdown-menu.notification-menu {
+ 
+}
+
+    .dropdown-menu.notification-menu .dropdown-item {
+        white-space: initial;
+    }
+
+    .dropdown-menu.notification-menu .notification-info {
+     
+    }
+
+        .dropdown-menu.notification-menu .notification-info img {
+            
+            margin-right: 10px;
+         
+        }
+
+        .dropdown-menu.notification-menu .notification-info .pharmacy-name {
+            font-weight: bold;
+            margin-right: 10px
+        }
+
+        .dropdown-menu.notification-menu .notification-info .date {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+    .dropdown-menu.notification-menu .notification-content {
+        margin-left: 50px;
+        color: #707070;
+        font-weight: 400;
+    }
+
+        .dropdown-menu.notification-menu .notification-content .link {
+            color: #0093DD;
+            font-weight: bold;
+        }
+
+.nav-link.flag img {
+    max-width: 20px;
+    display: inline-block;
+}
+
+
+@media(max-width:990px) {
+    .right-navbar.navbar-nav {
+        width: 100%;
+    }
+
+        .right-navbar.navbar-nav .nav-item {
+            width: 100%;
+        }
+
+        .right-navbar.navbar-nav .dropdown-menu::after {
+            display: none;
+        }
+
+    .dropdown-menu.notification-menu {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+
+button.navbar-toggler {
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+
+.nav-container nav {
+    max-width: 1625px;
+    margin: auto;
+}
+
+.navbar-brand img {
+    display: inline-block;
+    max-width: 64px;
+}
+
+.nav-container .nav-link {
+}
+
+.nav-container .form-inline a {
+  
+}
+
+.nav-container .form-inline .btn-login {
+    
+}
+
+.nav-container .form-inline .btn-order {
+   
+}
+
+
+
+#home {
+    
+}
+
+    #home > .icons {
+        position: absolute;
+        left: 0;
+        top: calc(50% - 75px)
+    }
+
+    #home h1 {
+       
+    }
+
+    #home p.description {
+       
+    }
+
+    #home .hint {
+        
+    }
+
+    #home a.btn-order {
+      
+    }
+
+.content-section {
+    
+}
+
+section .section-title {
+  
+}
+
+    section .section-title::after {
+        right: 0 !important;
+        left:unset;
+    }
+
+section .section-description {
+   
+}
+
+section#founder {
+
+}
+
+/*Founder */
+
+.founder-intro {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+    .founder-intro .founder-image {
+       
+    }
+
+
+
+        .founder-intro .founder-image img {
+          
+        }
+
+    .founder-intro .founder-name {
+      
+    }
+
+.founder-word {
+   
+    text-align: right;
+ 
+}
+
+.founder-lines {
+
+}
+
+    .founder-lines ul {
+        margin: auto;
+    }
+
+
+
+
+    .founder-lines li {
+        text-align: right;
+        padding-right: 24px;
+        direction: rtl;
+    }
+
+        .founder-lines li::before {
+            margin:auto !important;
+        }
+
+/*Managnent */
+
+
+#management {
+    direction:rtl;
+}
+#management .content-section {
+
+}
+
+#management .card {
+    
+}
+
+    #management .card .card-title {
+    }
+
+
+
+    #management .card .card-body {
+        text-align: right;
+    }
+
+
+    #management .card img {
+
+    }
+
+
+#management .management-cards {
+}
+
+/* my-vision*/
+
+#mission {
+    direction:rtl;
+}
+
+
+
+    #mission .letter {
+ 
+    }
+
+
+    #mission .vision {
+
+    }
+
+    #mission img {
+    }
+
+    #mission .section-title {
+    }
+
+    #mission p {
+                
+    }
+
+
+
+
+
+/* our values*/
+#our-values {
+    margin: auto
+}
+
+
+
+
+#our-values .our-values-cards {
+}
+
+#our-values .card {
+  
+}
+
+#our-values .card-title {
+    text-align: right;
+}
+
+#our-values .card-text {
+    text-align:start;
+}
+
+
+/* our success*/
+
+#our-success {
+
+}
+
+    #our-success .item {
+        
+    }
+
+        #our-success .item p {
+            text-align: right;
+        }
+
+        #our-success .item img {
+            margin-left: 2rem;
+            margin-right: 5rem;
+          
+        }
+/*About Us*/
+#about-us {
+    background: #FFF;
+    direction:rtl
+}
+
+
+
+    .about-us-container .image {
+     ;
+    }
+
+        .about-us-container .image img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+        }
+
+    .about-us-container > p, .mission-description {
+      
+        text-align: left;
+    }
+    
+        .about-us-container > p::after, .about-us-container > p::before {
+            
+        }
+
+        .about-us-container > p::after {
+            top: 0;
+            left: 0;
+        }
+
+        .about-us-container > p::before {
+            bottom: 0;
+            right: 0;
+        }
+
+
+
+
+#sales .row [class*="col-"] {
+    direction: unset !important;
+    text-align: unset !important;
+}
+
+.sales-box .sales-image {
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    left: calc(50% - 68px);
+    top: 68px;
+    z-index: 6;
+}
+
+.sales-box .sales-info {
+ 
+}
+
+.sales-box .sales-region {
+   
+}
+
+    .sales-box .sales-region img {
+        width: 30px;
+    }
+
+.sales-box:hover .sales-region {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sales-box .sales-image img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+
+.sales-box .sales-name {
+   
+}
+
+
+.sales-box .sales-number {
+    
+}
+
+    .sales-box .sales-number img {
+
+    }
+
+/*Sales*/
+
+.sales-swiper {
+    height: 450px;
+}
+
+    .sales-swiper .swiper-button-next, .sales-swiper .swiper-button-prev {
+ 
+        text-align: center;
+    }
+
+        .sales-swiper .swiper-button-prev:after, .sales-swiper .swiper-rtl .swiper-button-next:after, .sales-swiper .swiper-button-next:after, .sales-swiper .swiper-rtl .swiper-button-prev:after {
+          
+        }
+
+        .sales-swiper .swiper-button-next:after, .sales-swiper .swiper-rtl .swiper-button-prev:after {
+            
+        }
+
+        .sales-swiper .swiper-button-prev:after, .sales-swiper .swiper-rtl .swiper-button-next:after {
+         
+        }
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+ 
+}
+
+.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+
+}
+
+
+/*customers*/
+#customers {
+   
+}
+
+
+
+/*Contact us*/
+#contact-us {
+    direction: rtl;
+}
+
+.contact-us-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+    .contact-us-container .contact-info {
+      
+    }
+
+    .contact-us-container .title {
+    
+        text-align: right;
+    }
+
+    .contact-us-container .contact {
+     
+    }
+
+        .contact-us-container .contact img {
+    
+        }
+
+    .contact-us-container form {
+        text-align: right;
+        direction:rtl
+    }
+
+        .contact-us-container form label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3B3B3B;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .contact-us-container form textarea {
+            
+        }
+
+        .contact-us-container form .btn-order {
+
+        }
+
+/*Order Now*/
+
+#order-now {
+    
+    direction:rtl;
+}
+
+#order-now .title {
+    direction: rtl !important;
+}
+
+
+    #order-now img {
+        position: absolute;
+        right: -105px;
+    }
+
+    #order-now .btn-order {
+      direction:rtl
+    
+    }
+
+    #order-now .btn-order {
+        margin-right: 20px;
+    }
+
+footer {
+ direction:rtl;
+}
+
+    footer .content-section {
+        padding-bottom: 0px;
+    }
+
+
+    footer .footer-logo {
+        max-width: 320px;
+        margin-bottom: 30px;
+    }
+
+        footer .footer-logo img {
+   
+        }
+
+
+    footer p {
+     
+        text-align: right !important;
+    }
+
+    footer .bottom-footer {
+       
+       
+    }
+
+        footer .bottom-footer .socail {
+           
+        }
+
+            footer .bottom-footer .socail a {
+               
+            }
+
+                footer .bottom-footer .socail a img {
+                    
+                
+                }
+
+    footer .language-container {
+       
+    }
+
+        footer .language-container .languages {
+         
+        }
+
+            footer .language-container .languages a {
+               
+            }
+
+                footer .language-container .languages a.active {
+                    color: #A7CC3A;
+                }
+
+                footer .language-container .languages a:last-child {
+                    padding-right: 0px;
+                }
+
+                footer .language-container .languages a:not(:last-child)::after {
+                  
+                }
+
+
+/*for notifications*/
+
+@media(max-width:1200px) {
+    #home {
+     
+    }
+
+    .founder-intro .founder-image {
+    }
+
+    .founder-word {
+    }
+
+    #mission img {
+        margin-bottom: 0rem;
+    }
+
+    #mission .section-title {
+        margin-bottom: 2rem;
+    }
+
+    #order-now img {
+        position: absolute;
+        right: -105px;
+        width: 41%;
+    }
+
+    @media(max-width:1000px) {
+        section .section-description {
+            margin-bottom: 50px;
+        }
+
+        .founder-intro {
+            flex-wrap: wrap;
+        }
+
+            .founder-intro .founder-image, .founder-word {
+                max-width: 100%
+            }
+
+
+        .about-us-container {
+            flex-wrap: wrap;
+        }
+
+            .about-us-container > p, .about-us-container .image {
+                max-width: 100%;
+            }
+
+        .contact-us-container {
+            flex-wrap: wrap;
+        }
+
+            .contact-us-container form, .contact-us-container .contact-info {
+                max-width: 100%;
+            }
+
+        #mission img {
+            margin-bottom: 1rem;
+        }
+
+        #mission .section-title {
+            margin-bottom: 2rem;
+        }
+
+        @media(max-width:990px) {
+            #home {
+                background-position: unset;
+            }
+
+            .badge {
+                position: absolute;
+                top: -4px;
+                right: initial;
+                border-radius: 50%;
+                background: red;
+                color: white;
+            }
+
+            /*#home {
+                background-image: none;
+            }
+*/
+            #home > .icons {
+                position: absolute;
+                left: 0;
+                top: calc(50% - 75px);
+                top: initial;
+                bottom: 20px;
+            }
+
+
+            .founder-lines ul {
+                max-width: 100%;
+            }
+
+            #mission img {
+                margin-bottom: 0rem;
+            }
+
+            #mission .section-title {
+                margin-bottom: 2rem;
+            }
+
+
+            #order-now img {
+                position: absolute;
+                right: -105px;
+                width: 58%;
+            }
+
+            @media(max-width:580px) {
+                #home {
+                    background-position: unset;
+                }
+
+                .badge {
+                    position: absolute;
+                    top: -4px;
+                    right: initial;
+                    border-radius: 50%;
+                    background: red;
+                    color: white;
+                }
+
+                #home h1 {
+                    font-size: 30px;
+                    margin-bottom: 25px;
+                }
+
+                #home p.description {
+                    font-size: 18px;
+                    padding: 10px;
+                }
+
+                #home .icons {
+                    position: absolute;
+                    bottom: 30px;
+                    left: 0;
+                }
+
+                #home .midicine-img-div {
+                    display: none;
+                }
+
+                .navbar-brand img {
+                    max-width: 40px
+                }
+
+                header a.btn-order {
+                    width: 200px
+                }
+
+                .content-section {
+                    padding: 50px 10px;
+                }
+
+                section .section-title {
+                    font-size: 26px;
+                }
+
+                section .section-description {
+                    line-height: 40px;
+                }
+
+                .founder-word, .about-us-container > p, .mission-description {
+                    line-height: 30px;
+                    text-align: justify;
+                }
+
+                .mission {
+                    padding: 20px;
+                }
+
+
+                #order-now {
+                    flex-wrap: wrap;
+                }
+
+
+                    #order-now .btn-order {
+                        width: 100%;
+                        margin-left: 0;
+                        margin-top: 20px;
+                    }
+
+                .contact-us-container .contact-info {
+                    padding: 60px 20px;
+                }
+
+
+                .contact-us-container .contact {
+                    word-break: break-all;
+                    text-align: left;
+                }
+
+                footer .footer-logo {
+                    max-width: 280px;
+                }
+
+                footer .bottom-footer {
+                    flex-wrap: wrap;
+                }
+
+                    footer .bottom-footer .socail {
+                        width: 100%;
+                    }
+
+                footer .language-container {
+                    width: 100%;
+                    justify-content: flex-end;
+                }
+
+                #mission img {
+                    margin-bottom: 0rem;
+                }
+
+                #mission .section-title {
+                    margin-bottom: 2rem;
+                }
+
+                #order-now img {
+                    position: absolute;
+                    right: -105px;
+                    width: 70%;
+                }
+            }
+            /* Start Class Loader Show When Send Request Ajax*/
+            .loader {
+               
+            }
+
+            /* Safari */
+            @-webkit-keyframes spin {
+                0% {
+                    
+                }
+
+                100% {
+                  
+                }
+            }
+
+            @keyframes spin {
+                0% {
+              
+                }
+
+                100% {
+                    
+                }
+            }
+            /* End */
+
+            /*/ small devices (phones, 600px and down) /*/
+            @media (max-width: 576px) {
+
+                #home {
+                }
+
+                .nav-container {
+                }
+
+                .founder-lines ul {
+                }
+
+                #my-vision img {
+                    margin-bottom: 1rem;
+                }
+
+                #mission img {
+                    margin-bottom: 0rem;
+                }
+
+                #mission .section-title {
+                    margin-bottom: 2rem;
+                }
+
+                .badge {
+                  
+                }
+            }
+        }
+    }
+}

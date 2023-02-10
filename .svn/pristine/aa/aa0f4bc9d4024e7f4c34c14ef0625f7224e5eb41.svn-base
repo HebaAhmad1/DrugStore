@@ -1,0 +1,11 @@
+﻿$(document).ready(function () {
+    $("#AdminCustomersPharmacies").click(function () {
+        $.get("/CustomersAdmin/GetAllCustomers", function (done) { $('body').html(done); });
+    });
+    $("#AdminProcessOrders").click(function () {
+        $.get("/DisplayOrders/AdminCurrentOrders", function (done) { $('body').html(done); });
+    });
+    $("#AdminArchivedOrders").click(function () {
+        $.get("/DisplayOrders/AdminArchivedOrders", function (done) { $('body').html(done); });
+    });
+});

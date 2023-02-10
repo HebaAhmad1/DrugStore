@@ -1,0 +1,31 @@
+﻿
+
+
+<div class="PageAside d-flex flex-column align-items-center min-vh-100">
+    <div class="AsideImg">
+        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none ms-auto mt-5">
+            <img src="~/Images/AsideLogo.png" height="70px" class="rounded-circle mx-auto d-block" alt="">
+        </a>
+    </div>
+
+    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5 w-100" id="menu">
+        <li class="nav-item mb-3 w-100 text-center active account-info">
+            <a href="/Order/PharmacyAccountInfo" class="align-middle px-0">
+                <i class="fs-3 bi-house"></i> <span class="ms-1 d-sm-inline">@localizer["Account Information"]</span>
+            </a>
+        </li>
+
+        <li class="nav-item mb-3 w-100 text-center current-orders">
+            <a href="/Order/PharmacyCurrentOrders" class="px-0 align-middle ">
+                <i class="fs-4 bi-table"></i> <span class="ms-1 d-sm-inline">@localizer["Current Orders"]</span>
+            </a>
+        </li>
+
+        <li class="nav-item mb-3 w-100 text-center archived-orders">
+            <a href="/Order/PharmacyArchivedOrders" class="px-0 align-middle">
+                <i class="fs-4 bi-table"></i> <span class="ms-1 d-sm-inline">@localizer["Archived Orders"]</span>
+            </a>
+        </li>
+
+    </ul>
+</div>

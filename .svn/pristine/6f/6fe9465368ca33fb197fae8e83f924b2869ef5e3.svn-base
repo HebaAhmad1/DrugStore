@@ -1,0 +1,133 @@
+﻿var MainMap;
+var markersPh1 = [];
+var markersinfoPh1 = [];
+var infowindow;
+var lastPharmcyNote;
+var clusterMap;
+var AdminMap = function () {
+    return {
+        main: function () {
+            let HomeMap = new google.maps.Map(document.getElementById('AdminMap'), {
+                center: { lat: 31.437480, lng: 34.376295 },
+                zIndex: 10,
+                zoom: 12,
+                minZoom: 7,
+                disableDefaultUI: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: true,
+                fullscreenControl: false,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position: google.maps.ControlPosition.TOP_RIGHT,
+                },
+            });
+            MainMap = HomeMap;
+            var ChangeStyle = document.getElementById('ChangeStyle');
+            MainMap.controls[google.maps.ControlPosition.TOP_LEFT].push(ChangeStyle);
+        },
+        PharmacyMarker: function () {
+            $.get("/Map/AdminMap", function (rows) {
+                console.log(rows);
+                var notes = "";
+                for (var i = 0; i < rows.data.length; i++) {
+                    if (rows.data[i].latitude != null && rows.data[i].longitude != null) {
+                        let phmarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(rows.data[i].latitude, rows.data[i].longitude),
+                        });
+                        phmarker.addListener("click", (e) => {
+                            let index = markersPh1.findIndex(x => {
+                                return x == phmarker;
+                            });
+                            notes = "";
+                            lastPharmcyNote = index;
+                            if (markersinfoPh1[index] != undefined && markersinfoPh1[index].pharmacyNotes != null && markersinfoPh1[index].pharmacyNotes.length > 0) {
+                                for (var j = 0; j < markersinfoPh1[index].pharmacyNotes.length; j++) {
+                                    notes += '<br><div class="row"><b style="font-size: 16px; color: #4E4E4E;" class="col-4 pt-2">' + markersinfoPh1[index].pharmacyNotes[j].noteTitle + '</b> <input type="text" class="form-control col-8" disabled value="' + markersinfoPh1[index].pharmacyNotes[j].noteBody + '"></div>';
+                                }
+                            }
+                            var content = '<div class="row"><b style="font-size: 16px; color: #4E4E4E;" class="col-4 pt-2">Pharmacy Name </b> <input type="text" class="form-control col-8" disabled value="' + markersinfoPh1[index].pharmacyName + '"></div><br>' +
+                                '<div class="row"><b style="font-size: 16px; color: #4E4E4E;" class="col-4 pt-2">Supplier Name </b> <input type="text" class="form-control col-8" disabled value="' + markersinfoPh1[index].supplierName + '"></div>' + (notes == "" ? "" : notes);
+                            AdminMap().openInfoWindow(markersPh1[index], content, markersinfoPh1[index].pharmacyId);
+                        });
+                        markersPh1.push(phmarker);
+                        markersinfoPh1.push(rows.data[i]);
+                    }
+                }
+                let clusterMarker = new MarkerClusterer(MainMap, markersPh1, {
+                    styles: [{
+                        url: '/images/markers/m1.png',
+                        width: 53,
+                        height: 53,
+                        textColor: "white"
+                    }],
+                    maxZoom: 16,
+                    ignoreHidden: true
+                });
+                clusterMap = clusterMarker;
+            });
+        },
+        InfoWindow: function () {
+            infowindow = new google.maps.InfoWindow({});
+        },
+        closeInfowindow: function () {
+            infowindow.close();
+        },
+        openInfoWindow: function (marker, content, id) {
+            var data = `<div style=" padding: 20px; overflow-y: hidden;"><h5 style="display: flex; justify-content: center; font-size: 24px;">Pharmacy Details</h5><br>` + content;
+            data += `<br><div><h5 style="padding-top: 22px; font-size: 16px; color: #4E4E4E;">Notes</h5><input type="text" class="form-control" id="topicNote" placeholder="Title"/><textarea placeholder="Enter pharmacy notes here" id="NotesBody" class="form-control" style="margin-top: 13px !important;" rows="4" cols="50" ></textarea><br><div class="row justify-content-center"><button id="AddNewTopic" class="btn btn-success" data-marker="${id}">Save</button></div></div>`;
+            infowindow.setContent(data);
+            infowindow.open({
+                anchor: marker,
+                map: MainMap,
+                shouldFocus: false,
+            });
+        },
+        saveNotes: function () {
+            $('body').off('click', '#AddNewTopic');
+            $('body').on('click', '#AddNewTopic', function (e) {
+                e.preventDefault();
+                var data = {};
+                data.PharmacyId = $(this).attr("data-marker");
+                data.NoteTitle = $("#topicNote").val();
+                data.NoteBody = $("#NotesBody").val();
+                if (data.PharmacyId != null && data.NoteTitle != "" && data.NoteBody != "") {
+                    $.post("/Map/AddMapNotes", { note: data }, function (done) {
+                        if (done.status) {
+                            if (lastPharmcyNote != null && lastPharmcyNote != undefined) {
+                                markersinfoPh1[lastPharmcyNote].pharmacyNotes.push({ noteBody: data.NoteBody, noteTitle: data.NoteTitle });
+                            }
+                            AdminMap().closeInfowindow();
+                        }
+                    });
+                } else {
+
+                }
+            });
+        },
+        //ChangeMarkerStyle: function () {
+        //    debugger;
+        //    $('body').on('click', '#ChangeStyle', function () {
+        //        console.log(clusterMap);
+        //        console.log(markersPh1);
+        //        if (markersPh1[0].map == null) {
+        //            for (var i = 0; i < markersPh1.length; i++) {
+        //                markersPh1[i].setMap(MainMap);
+        //            }
+        //            clusterMap = new MarkerClusterer(map);
+        //        }
+        //    });
+        //}
+    }
+}
+
+
+$(document).ready(function () {
+    AdminMap().main();
+    AdminMap().InfoWindow();
+    AdminMap().PharmacyMarker();
+    AdminMap().saveNotes();
+    //AdminMap().ChangeMarkerStyle();
+});

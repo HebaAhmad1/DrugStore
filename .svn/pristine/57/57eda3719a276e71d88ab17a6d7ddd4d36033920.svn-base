@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Pharmacy> SignInManager
+@inject UserManager<Pharmacy> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    if (ViewBag.PharmacyRole == "Admin")
+    {
+        //Admin
+        <ul class="navbar-nav align-items-center right-navbar">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-with-image" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <img src="~/Images/AdminLogo.png" /> @ViewBag.PahrmacyName
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/DisplayOrders/AdminCurrentOrders" id="AdminProcessOrders">@localizer["Current Orders"]</a>
+                    <a class="dropdown-item" href="/DisplayOrders/AdminArchivedOrders" id="AdminArchivedOrders">@localizer["Archived Orders"]</a>
+                    <a class="dropdown-item" href="/CustomersAdmin/GetAllCustomers" id="AdminCustomersPharmacies">@localizer["Customers"]</a>
+                    <a class="dropdown-item btn" data-toggle="modal" data-target="#UploadDrugExcelFile">
+                        <i class="fa fa-upload"></i>
+                        @localizer["Upload Drugs"]
+                    </a>
+                    <a class="dropdown-item btn" data-toggle="modal" data-target="#UploadPharmaciesExcelFile">
+                        <i class="fa fa-upload"></i>
+                        @localizer["Upload Pharmacies"]
+                    </a>
+                    <a class="dropdown-item">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("LandingPage", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-dark">@localizer["Sing Out"]</button>
+                        </form>
+                    </a>
+                </div>
+            </li>
+
+            @*=========================Admin Notifications============================== *@
+            <partial name="_AdminNotificationsPartial" />
+            @*======================================================================== *@
+
+            <li class="nav-item">
+                <partial name="_SelectLanguagePartial" />
+            </li>
+        </ul>
+    }
+    else
+    {
+        //Pharmacy
+        <ul class="navbar-nav align-items-center right-navbar">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-with-image" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <img src="./Images/mylogo.png" /> @ViewBag.PahrmacyName
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/Order/PharmacyCurrentOrders">@localizer["Current Orders"]</a>
+                    <a class="dropdown-item" href="/Order/PharmacyArchivedOrders">@localizer["Archived Orders"]</a>
+                    <a class="dropdown-item" href="/Order/PharmacyAccountInfo">@localizer["Pharmacy Profile"]</a>
+                    <a class="dropdown-item">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("LandingPage", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-dark">@localizer["Sing Out"]</button>
+                        </form>
+                    </a>
+                </div>
+            </li>
+            @*=========================Pharmacy Notifications==================== *@
+            <partial name="_PharmacyNotificationsPartial" />
+            @*=================================================================== *@
+            <li class="nav-item">
+                <a class="btn btn-order" href="/order/Create">@localizer["Order Now"]</a>
+            </li>
+            <li class="nav-item">
+                <partial name="_SelectLanguagePartial" />
+            </li>
+        </ul>
+
+    }
+}
+else
+{
+    <div class="form-inline my-2 my-lg-0">
+        <a asp-controller="order" asp-action="Create" class="btn btn-outline-success btn-order my-2 my-sm-0">@localizer["Order Now"]</a>
+        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-outline-success btn-login my-2 my-sm-0">@localizer["Sign in"]</a>
+    </div>
+    <div>
+        <partial name="_SelectLanguagePartial" />
+    </div>
+}

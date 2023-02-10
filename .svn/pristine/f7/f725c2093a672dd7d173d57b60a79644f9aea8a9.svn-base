@@ -1,0 +1,107 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Pharmacy> SignInManager
+@inject UserManager<Pharmacy> UserManager
+
+<ul class="navbar-nav loginNavbar">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        if (ViewBag.PharmacyRole == "Admin")
+        {
+            //Admin
+            <li class="nav-item PharmacyImg">
+                <img src="~/Images/AdminLogo.png" alt="Alternate Text" />
+            </li>
+            <li class="nav-item PharmacyName">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuPharmacyName" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        @ViewBag.PahrmacyName
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuPharmacyName">
+                        <a class="dropdown-item" href="/DisplayOrders/AdminCurrentOrders" id="AdminProcessOrders">@localizer["Current Orders"]</a>
+                        <a class="dropdown-item" href="/DisplayOrders/AdminArchivedOrders" id="AdminArchivedOrders">@localizer["Archived Orders"]</a>
+                        <a class="dropdown-item" href="/CustomersAdmin/GetAllCustomers" id="AdminCustomersPharmacies">@localizer["Customers"]</a>
+                        <a class="dropdown-item btn" data-toggle="modal" data-target="#UploadDrugExcelFile">
+                            <i class="fa fa-upload"></i>
+                            @localizer["Upload Drugs"]
+                        </a>
+                        <a class="dropdown-item btn" data-toggle="modal" data-target="#UploadPharmaciesExcelFile">
+                            <i class="fa fa-upload"></i>
+                            @localizer["Upload Pharmacies"]
+                        </a>
+                        <a class="dropdown-item">
+                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("LandingPage", "Home", new { area = "" })">
+                                <button type="submit" class="nav-link btn btn-link text-dark">@localizer["Sing Out"]</button>
+                            </form>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            @*=========================Admin Notifications============================== *@
+            <partial name="_AdminNotificationsPartial" />
+            @*======================================================================== *@
+
+            <li class="mt-lg-n2 nav-item">
+                <partial name="_SelectLanguagePartial" />
+            </li>
+            @*To Learn If User IsSignedIn And Who Is He*@
+            <li>
+                <input class="d-none" type="text" value="Admin" id="AdminSignedIn" />
+            </li>
+
+        }
+        else
+        {
+            //Pharmacy
+            <li class="nav-item PharmacyImg">
+                <img src="~/Images/PharmacyImg.png" alt="Alternate Text" />
+            </li>
+            <li class="nav-item PharmacyName">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuPharmacyName" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        @ViewBag.PahrmacyName
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuPharmacyName">
+                        <a class="dropdown-item" href="/Order/PharmacyCurrentOrders">@localizer["Current Orders"]</a>
+                        <a class="dropdown-item" href="/Order/PharmacyArchivedOrders">@localizer["Archived Orders"]</a>
+                        <a class="dropdown-item" href="/Order/PharmacyAccountInfEdit">@localizer["Pharmacy Profile"]</a>
+                        <a class="dropdown-item">
+                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("LandingPage", "Home", new { area = "" })">
+                                <button type="submit" class="nav-link btn btn-link text-dark px-0">@localizer["Sing Out"]</button>
+                            </form>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            @*=========================Pharmacy Notifications==================== *@
+            <partial name="_PharmacyNotificationsPartial" />
+            @*=================================================================== *@
+
+            <li class="mt-lg-n2 nav-item">
+                <partial name="_SelectLanguagePartial" />
+            </li>
+
+            <a class="btn btn-outline-success btn-order ml-lg-2 my-2 my-sm-0" style="" asp-controller="order" asp-action="Create">@localizer["Order Now"]</a>
+
+            @*To Learn If User IsSignedIn And Who Is He*@
+            <li>
+                <input class="d-none" type="text" value="Pharmacy" id="PharmacySignedIn" />
+            </li>
+        }
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="btn btn-info" asp-controller="order" asp-action="Create" title="Order Now">@localizer["Order Now"]</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">@localizer["Sign in"]</a>
+        </li>
+        <li class="nav-item">
+            <partial name="_SelectLanguagePartial" />
+        </li>
+    }
+</ul>

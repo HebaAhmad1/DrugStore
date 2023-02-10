@@ -1,0 +1,68 @@
+﻿<div class="row accountInfo">
+    <div class="col-md-3 bg-light p-0">
+        <partial name="_AsidePartial" />
+    </div>
+    <div class="col-lg-9  mt-5 accountInfoHead">
+        <h4 class="font-weight-bold">
+            @localizer["Account Information"]
+            <span>
+                <a href="/Order/PharmacyAccountInfEdit"><i class="fas fa-pen"></i></a>
+            </span>
+        </h4>
+        <div class="card accountInfoBody">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>@localizer["Pharmacy Name"]</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <p>@ViewBag.PahrmacyName</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>@localizer["Account Number"]</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <p>@ViewBag.PharAccountNumber</p>
+                    </div>
+                </div>
+                <div class="row editpass">
+                    <div class="col-md-4">
+                        <h5>@localizer["Password"]</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <p>
+                            **************
+                            <i class="fas fa-eye ml-4"></i>
+                            <a id="UpdatePass" class="ml-4 font-weight-bold" href="#">@localizer["Update Password?"]</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Change Pharmacy Password Modal  -->
+<partial name="_ChangePasswordPartial" />
+
+
+
+@section Scripts{
+    <script src="~/js/ChangePassword.js"></script>
+    <script>
+        $("#UpdatePass").hide();
+        $("#UpdatePass").parents('.editpass').mouseenter(function () {
+            $("#UpdatePass").css("color", "#EE0E08");
+            $("#UpdatePass").show();
+        });
+        $("#UpdatePass").parents('.editpass').mouseleave(function () {
+            $("#UpdatePass").hide();
+        });
+        //Change Active Class
+        $("li").removeClass('active');
+        $(".account-info").addClass('active');
+    </script>
+} 

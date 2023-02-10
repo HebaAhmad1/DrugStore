@@ -1,0 +1,48 @@
+﻿    <!-- The Drugs Modal -->
+<div class="modal" id="UploadDrugExcelFile">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">@localizer["Upload Drugs"]</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form id="drugData" method="post" enctype="multipart/form-data">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="drugFileValue"
+                                   aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer upload-drugs">
+                    <button type="submit" class="btn btn-primary">@localizer["Upload"]</button>
+                    <button type="button" id="closeDrugMoal" class="btn btn-danger" data-dismiss="modal">@localizer["Close"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal To Show Loader -->
+<div class="modal" id="LoaderDrugModal">
+    <div class="modal-dialog">
+        <div class="">
+            <div class="loader"></div>
+            <button class="d-none" type="button" id="closeDrugLaoder" data-dismiss="modal"></button>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="d-none" id="showDrugLaoder" data-toggle="modal" data-target="#LoaderDrugModal">
+</button>

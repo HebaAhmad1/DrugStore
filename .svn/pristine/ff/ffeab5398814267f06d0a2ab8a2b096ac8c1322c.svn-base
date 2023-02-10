@@ -1,0 +1,17 @@
+﻿<li class="nav-item position-relative Notification mt-2">
+    <div class="dropdown">
+        <span class="badge" id="adminNotificationCount"></span>
+        <button class="btn dropdown-toggle" type="button" id="MainAdminNotifications" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bell"></i>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown notifications-dropdown">
+                    <div class="dropdown-menu" aria-labelledby="MainAdminNotifications" id="AdminNotificationMenue">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</li>

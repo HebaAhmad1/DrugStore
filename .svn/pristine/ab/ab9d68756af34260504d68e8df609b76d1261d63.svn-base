@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - MAFUI</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/css/MainLayoutStyle.css" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link href="~/css/notifications.css" rel="stylesheet" />
+    @if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        <link href="~/css/ArabicStyle.css" rel="stylesheet" />
+        <style>
+            /*To Change Direction To All Row Class Rtl */
+            .row [class*="col-"] {
+                direction: rtl !important;
+                text-align: right;
+            }
+
+            table {
+                direction: ltr;
+                text-align: left;
+            }
+        </style>
+    }
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <header id="home">
+        @*style="margin-bottom:100%;"*@
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="LandingPage">
+                    <img src="~/Images/logo.png" alt="Alternate Text" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#home">@localizer["Home"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Home/LandingPage#founder">@localizer["Founder"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Home/LandingPage#about-us">@localizer["About Us"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Home/LandingPage#mission">@localizer["Mission&Vision"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Home/LandingPage#sales">@localizer["Our Values"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Home/LandingPage#customers">@localizer["Our Customers"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Home/LandingPage#contact-us">@localizer["Contact Us"]</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <!-- The Drugs Modal -->
+    <partial name="_UploadDrugsPopupPartial" />
+    <!-- The Pharmacy Modal -->
+    <partial name="_UploadPharmaciesPopupPartial" />
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="~/lib/google/MarkerCluster.js" asp-append-version="true" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/js/UploadExcelFile.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+    @*Call Notifications Script Js*@
+    <script src="~/js/Notifications.js"></script>
+
+
+</body>
+</html>

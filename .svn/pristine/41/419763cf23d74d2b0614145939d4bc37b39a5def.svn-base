@@ -1,0 +1,239 @@
+﻿@section Styles{
+    @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.css" />*@
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+
+    <style>
+        tr.group,
+        tr.group:hover {
+            background-color: #ddd !important;
+        }
+
+        div.container {
+            width: 80%;
+        }
+    </style>
+}
+
+<div class="row accountInfo">
+    <div class="col-md-3 bg-light p-0">
+        <partial name="_AsidePartial" />
+    </div>
+    <div class="col-lg-9  mt-5 accountInfoHead">
+        <div class="d-flex justify-content-between pb-2 arabic-Div currAndArchHeader" style="border-bottom: 3px solid">
+            <div class="font-weight-bolder">
+                @localizer["Current Orders"]
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <table id="example" class="table  table-responsive-lg table-responsive-xl row-border hover table-checkable display" style="width:100%;margin-top: 13px !important">
+                <thead>
+                    <tr>
+                        <th>createdAt</th>
+                        <th>DrugId</th>
+                        <th>Drug Name</th>
+                        <th>Quantity</th>
+                        <th>Price Per Unit</th>
+                        <th>Total Price</th>
+                        <th>Order Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js">
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        //Change Active Class
+        $("li").removeClass('active');
+        $(".current-orders").addClass('active');
+
+        var KTDatatablesDataSourceAjaxServer = function () {
+
+            $.fn.dataTable.Api.register('column().title()', function () {
+                return $(this.header()).text().trim();
+            });
+
+            var initTable1 = function () {
+                //var table = $('#example');
+
+                // begin first table
+                var table = $('#example').DataTable({
+                    drawCallback: function (settings) {
+                        var api = this.api();
+                        var rows = api.rows({ page: 'current' }).nodes();
+                        var last = null;
+
+                        api.column(0, { page: 'current' }).data().each(function (group, i) {
+                            if (last !== group) {
+
+                                $(rows).eq(i).before(
+                                    `<tr class="group" style="background-color:#D4EDF9 !important;"><td colspan="8">
+                                    <span class= "order-datetime"> ${group} </span> <a href="/order/create?PharmacyOrdersId=${api.row(i).data().pharmacyOrderId}&update=1" data-id="${api.row(i).data().pharmacyOrderId}"
+                                                                    class="btn btn-sm btn-clean btn-icon float-right" title="Edit">
+                                                                        Total Price: ${api.row(i).data().totalPricePharmacyOrders} NIS
+                                                                        <i class="la la-edit"></i>
+                                                                    </a>
+                                                                    </td>
+                                                                    </tr>`
+                                );
+
+                                last = group;
+                            }
+                        });
+                    },
+                    responsive: true,
+                    searchDelay: 500,
+                    processing: true,
+                    serverSide: true,
+                    language: {
+                        "infoFiltered": "",
+                        "processing": `<div style="margin-top:4%"><i class="fa fa-spinner fa-spin fa-3x fa-fw" ></i><span class="sr-only">Loading...</span></div> `
+                    },
+                    dom: '<"row"lr><"row"<"col-xs-12 col-lg-12"t>><"row"<"col-sm-6"i><"col-sm-6"p>>',
+
+                    ajax: {
+                        //url: 'https://preview.keenthemes.com/metronic/theme/html/tools/preview/api/datatables/demos/server.php',
+                        url: '/Order/PharmacyCurrentOrders',
+                        type: 'POST',
+                        dataType: "json",
+                        data: function (d) {
+
+                            d.columnsDef = ['createdAtString', 'drugId', 'drugName', 'pricePerUnit', "quantity"
+                                , 'totalPrice', 'status', "action"]
+                        }
+                    },
+                    columns: [
+                        { data: 'createdAtString', autowidth: true, orderable: false },
+                        { data: 'drugId', autowidth: true, orderable: false, className: "text-center " },
+                        { data: 'drugName', autowidth: true, orderable: false , className:"text-nowrap"},
+                        { data: 'quantity', autowidth: true, orderable: false, className: "text-center"},
+                        { data: 'pricePerUnit', autowidth: true, orderable: false, className: "text-center" },
+                        { data: 'totalPrice', autowidth: true, orderable: false, className: "text-center" },
+                        { data: 'status', autowidth: true, orderable: false, className: "text-center" },
+                        { data: 'action', autowidth: true, orderable: false, className: "text-center" }
+
+                    ],
+
+
+                    columnDefs: [
+
+                        {
+                            targets: 0, "visible": false
+
+                        },
+
+                        {
+                            targets: 7,
+                            render: function (data, type, full, meta) {
+                                var status = {
+                                    1: { 'title': 'Pending', 'class': 'label-light-primary' },
+                                    2: { 'title': 'Completed', 'class': 'label-light-danger' },
+                                    3: { 'title': 'Canceled', 'class': 'label-light-primary' },
+
+                                };
+                                if (typeof status[data] === 'undefined') {
+                                    return data;
+                                }
+                                return '<span class="label label-lg font-weight-bold' + status[data].class + ' label-inline">' + status[data].title + '</span>';
+                            },
+                        },
+                        {
+                            targets: -1,
+                            title: 'Actions',
+                            orderable: false,
+                            render: function (data, type, full, meta) {
+                                return `
+                                                <a href="javascript:;" data-id="${full.orderId}" class="btn btn-sm btn-clean btn-icon" title="Delete">
+                                                    <i class="la la-trash"></i>
+                                                </a>
+                                            `;
+                            },
+                        },
+                        {
+                            targets:-3,
+                            render:(data, type, full, meta)=>data.toFixed(2)
+                        },
+                         {
+                            targets:-4,
+                            render:(data, type, full, meta)=>data.toFixed(2)
+                        },
+
+                    ],
+                });
+
+                $("body").on("click", "[title='Delete']", function (e) {
+                    let url = `/Order/DeleteOrder?orderId={orderId}`;
+                    let id = $(this).data('id');
+                    let parent = $(this).closest('tr');
+                    swal.fire({
+                        title: 'Delete',
+                        text: "Are you Sure?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        cancelButtonText: 'Cancel',
+                        confirmButtonText: 'OK',
+                        preConfirm: function () {
+                            $.ajax({
+                                url: url.replace('{orderId}', id),
+                                type: 'delete',
+                                data: {
+                                },
+                                success: function (response) {
+                                    swal.fire({
+                                        title: 'Completed',
+                                        text: response.message,
+                                        icon: 'success',
+                                        showConfirmButton: false,
+                                        timer: 1500,
+                                    })
+                                    table.draw();
+                                },
+                                error: (e) => {
+                                    console.log(e);
+                                }
+                            });
+                        }
+                    });
+                });//end of event
+
+
+
+            };
+
+            return {
+
+                //main function to initiate the module
+                init: function () {
+                    initTable1();
+                },
+
+            };
+
+        }();
+
+        jQuery(document).ready(function () {
+            KTDatatablesDataSourceAjaxServer.init();
+        });
+
+        //// Add Style To Select Box
+        //$(document).ready(function () {
+        //    $("#example_length").addClass('ml-3');
+        //});
+    </script>
+}

@@ -1,0 +1,445 @@
+﻿/* Start Code Drug Store */
+
+/*Start Scroll Code*/
+/* width */
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px; /* height of horizontal scrollbar */
+}
+/*Track*/ 
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey;
+    border-radius: 10px;
+}
+ /*Handle*/ 
+::-webkit-scrollbar-thumb {
+    background: #606060;
+    border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #606060;
+}
+/*End Scroll Code*/
+body {
+    margin-top: 108px;
+}
+p, h6, h5, span {
+    font-weight: bold;
+}
+a {
+    text-decoration: none !important;
+}
+
+.select2-container {
+    max-width: 100%;
+    display: block !important;
+}
+
+th, .collapse ul li{
+    white-space: nowrap;
+}
+/*.odd, .even
+{
+    text-align: center;
+}*/
+
+.form-control {
+    font-size: 15px;
+}
+
+a.navbar-brand {
+    text-align: left;
+    margin-right: -27px;
+}
+
+    a.navbar-brand img {
+        width: 60%;
+    }
+
+.navbar-collapse ul li {
+    /* margin-right: 15px;*/
+}
+
+    .navbar-collapse ul li a {
+        font-weight: 700;
+        font-size: 12px;
+    }
+
+.Notification .dropdown-toggle::after {
+    display: none;
+}
+
+.PharmacyImg {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+    .PharmacyImg img {
+        width: 133%;
+        height: 133%;
+        border-radius: inherit;
+        margin-top: -7px;
+    }
+
+ul.loginNavbar li {
+    margin-right: 0;
+}
+
+    ul.loginNavbar li button, ul.loginNavbar li a {
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+        ul.loginNavbar li a.btn-info {
+            border-radius: 50px;
+            background: #A7CC3A 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #00000029;
+            border-radius: 26px;
+            opacity: 1;
+            color: #FFFFFF;
+            padding: 4px;
+            margin-left: 2px;
+            font-size: 12px;
+        }
+
+.footer img {
+    width: 100%;
+}
+
+.loginNavbar li.Notification {
+    border-right: solid 3px #F5F5F5;
+    margin-right: 10px;
+}
+
+
+.Parent_Footer {
+    position: relative;
+}
+
+.footer {
+    white-space: normal;
+}
+
+    .footer .Child_footer {
+        background-image: url(../Images/Footer.png);
+        background-repeat: no-repeat, repeat;
+        min-height: 335px;
+        position: relative;
+        background-size: cover;
+    }
+
+    .footer .Sub_ChildFooter {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: #0093ddb0;
+    }
+
+        .footer .Sub_ChildFooter img {
+            width: fit-content;
+        }
+
+        .footer .Sub_ChildFooter .container {
+            margin-top: 40px;
+        }
+
+            .footer .Sub_ChildFooter .container img {
+                width: 242px;
+                margin-bottom: 12px;
+            }
+
+            .footer .Sub_ChildFooter .container p.Information {
+                width: 42%;
+                text-align: justify;
+                color: #F3F1F1;
+                font-size: 14px;
+                line-height: 20px;
+                margin-top: 10px;
+            }
+
+            .footer .Sub_ChildFooter .container hr {
+                border-color: #ffffff69;
+                margin-top: 30px;
+            }
+
+footer .Sub_ChildFooter .container img.footer_icon {
+    width: 29.74px;
+    height: 29.74px;
+}
+
+footer .Sub_ChildFooter .container div {
+    position: relative;
+}
+
+    footer .Sub_ChildFooter .container div p {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
+        color: #FFFFFF;
+    }
+
+        footer .Sub_ChildFooter .container div p a {
+            color: #FFFFFF
+        }
+
+            footer .Sub_ChildFooter .container div p a.first_link {
+                margin-left: 10px;
+                border-right: solid 0.2px #ffffff99;
+                padding-right: 5px;
+            }
+
+  
+
+
+    /*Code DrugStoreAccountInfo*/
+    .accountInfo div.accountInfoHead h4 {
+    font-size: 19px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+/*.accountInfo div.accountInfoHead span {
+    background: #F9F9F9;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    border: #707070;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
+}*/
+
+.accountInfo div.accountInfoHead span i {
+    color: #B1B1B1;
+    height: 20.88px;
+    width: 20.88px;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 9px;
+}
+
+.accountInfo div.accountInfoBody .card-body h5 {
+    color: #0093DD;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 3%;
+}
+
+.accountInfo div.accountInfoBody .card-body p {
+    color: #707070;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.AsideImg img {
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
+    margin: -15px;
+}
+
+.accountInfo .accountInfoHead .buttonUpdaetInfo {
+    position: relative;
+}
+
+    .accountInfo .accountInfoHead .buttonUpdaetInfo button {
+        position: absolute;
+        top: 14px;
+        right: 0;
+        padding: 7px 18px;
+        background: #168305;
+    }
+
+.PageAside {
+    background: #F0F0F0;
+    margin-top: -15px;
+    line-height: 300%;
+    width: 85%;
+    height: 100%;
+}
+
+
+    .PageAside li a {
+        font-weight: 700;
+    }
+
+        .PageAside li a span {
+            font-size: 16px !important;
+            color: #707070;
+        }
+
+.active {
+    background: #D2ECF9;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.swal2-popup {
+    font-size: 14px !important;
+    font-family: Georgia, serif;
+}
+
+/* Start Class Loader Show When Send Request Ajax*/
+.loader {
+    position: fixed;
+    top: 45%;
+    left: 45%;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 70px;
+    height: 70px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-order {
+    width: 97px;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 26px;
+    color: #FFF;
+    font-size: 13px;
+    background: #A7CC3A;
+    padding: 0px 7px;
+    font-weight: bold;
+}
+
+#send-order {
+    margin-left: 16%;
+}
+.currAndArchHeader {
+    margin-left: 23px
+}
+#example_length
+{
+    margin-left: 14px;
+}
+.sub-filter {
+    text-align: start;
+    padding-left: 40px !important;
+}
+.badge {
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+}
+
+.notifications-dropdown .dropdown-menu {
+    right: 0;
+    left: initial;
+    direction: ltr
+}
+
+/* End */
+/*/ small devices (phones, 600px and down) /*/
+@media (max-width: 576px) {
+    body {
+        margin-top: 20%;
+    }
+
+    #location, #myOrders {
+        margin-top: 3%;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+
+    .filter {
+        margin-top: 10px;
+    }
+
+    .PharmacyImg {
+        display: none;
+    }
+
+    nav.navbar {
+        max-height: 100vh;
+        overflow: auto;
+    }
+
+    .PageAside {
+        display: none !important;
+    }
+}
+
+/*/ Medium devices (laptops/desktops, 992px and up) /*/
+@media (min-width: 577px) and (max-width: 991px) {
+    body {
+        margin-top: 10%;
+    }
+
+    #location, #myOrders {
+        margin-top: 3%;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+
+    .filter {
+        margin-top: 10px;
+    }
+
+    .PharmacyImg {
+        display: none;
+    }
+
+    #add-drug {
+        padding-left: 18px;
+        padding-right: 23px;
+        padding-top: 7px;
+        padding-bottom: 5px;
+        margin-top: 13px;
+    }
+
+    .iconDrugName {
+        display: none;
+    }
+
+    .PageAside {
+        display: none !important;
+    }
+
+    .accountInfo .bg-light {
+        display: none !important;
+    }
+
+    .accountInfoHead {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/*/ large devices (large laptops and desktops, 1200px and up) /*/
+@media (min-width: 922px) and (max-width: 1199) {
+}

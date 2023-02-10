@@ -1,0 +1,147 @@
+﻿body {
+    font-family: serif;
+}
+
+.nav-link, #dropdownMenuPharmacyName {
+    font-size: 16px !important;
+}
+
+.btn-order {
+    font-size: 14px;
+}
+
+label {
+    width: 100% !important;
+    display: inline-block !important;
+}
+
+/* order/Create */
+.shadow-sm p-3 mb-5 bg-white rounded mt-3 ml-2 row, .rowArabic {
+    flex-direction: row-reverse;
+}
+
+.breadcrumb, .shadow-sm, .arabic-Div, .accountInfo, .Parent-send-order, nav, .form-control, .order-datetime {
+    direction: rtl;
+}
+
+.headerArabic {
+    text-align: right;
+}
+
+#send-order {
+    margin-right: 16%;
+}
+
+.fa-chevron-right:before {
+    content: "\f053" !important;
+}
+
+ul.nav-pills {
+    padding-right: 0;
+}
+
+.btn-order {
+    margin-right: 7px;
+}
+
+div.modal-header {
+    direction: rtl !important;
+}
+
+button.close {
+    padding: 1rem 1rem !important;
+    margin: -1rem 0rem -1rem -1rem !important;
+}
+
+.modal-footer {
+    display: inline-block;
+    direction: ltr;
+}
+
+.currAndArchHeader {
+    margin-right: 23px;
+}
+
+#example_length {
+    margin-left: 0;
+}
+
+#export, .en-direction, .custom-switch {
+    direction: ltr;
+}
+
+.en-label {
+    width: fit-content !important;
+}
+
+.custom-switch {
+    margin-right: 87px;
+}
+
+.UpdateCustomer {
+    direction: rtl;
+}
+
+#saveNewPassword {
+    margin-left: 12px;
+}
+
+#saveNewPassword, .UpdateCustomer .btn-danger {
+    float: right;
+}
+
+.order-datetime {
+    display: inline-block !important;
+}
+
+.upload-pharmacies, .upload-drugs {
+    display: flex;
+    justify-content: flex-start;
+    direction: rtl;
+}
+    .upload-pharmacies .btn-primary, .upload-drugs .btn-primary {
+        margin-left: 10px;
+    }
+
+#example_length {
+    margin-left: 20px
+}
+.dropdown-menu.show {
+    text-align: right
+}
+.swal2-checkbox
+{
+    display: none !important;
+}
+
+    /*for notifications*/
+.notifications-dropdown .dropdown-menu {
+    right: initial;
+    left: 0;
+    direction:rtl
+}
+/* Xtra small devices (phones, 600px and down)*/
+@media (max-width: 510px) {
+    .custom-switch {
+        margin-right: 0;
+    }
+}
+/* small devices (phones, 600px and down)*/
+@media (max-width: 576px) {
+    body {
+        margin-top: 20%;
+    }
+}
+
+/* Medium devices (laptops/desktops, 992px and up) */
+@media (min-width: 577px) and (max-width: 991px) {
+    body {
+        margin-top: 10%;
+    }
+}
+
+/* large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 922px) and (max-width: 1199) {
+}
+
+

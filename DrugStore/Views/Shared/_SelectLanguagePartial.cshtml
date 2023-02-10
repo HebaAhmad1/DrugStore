@@ -1,0 +1,18 @@
+﻿@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.Parent.ToString() })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"{Context.Request.Path.Value}";
+}
+
+<div style="margin-right: auto;width: 59px;">
+    <form method="POST" asp-controller="Home" asp-action="SetLanguage"
+          asp-route-returnUrl="@returnUrl">
+        <select class="custom-select pt-1 pb-1 mt-3" style="" name="culture"
+                onchange="this.form.submit();"
+                asp-for="@requestCulture.RequestCulture.UICulture.Name"
+                asp-items="cultureItems">
+        </select>
+    </form>
+</div>

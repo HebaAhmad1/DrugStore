@@ -1,0 +1,661 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/css/Landing.css" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/notifications.css" />
+    @if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        <link href="~/css/Landing-ar.css" rel="stylesheet" />
+        <style>
+            /*To Change Direction To All Row Class Rtl */
+            .row [class*="col-"] {
+                direction: rtl !important;
+                text-align: right;
+            }
+        </style>
+    }
+</head>
+<body style="margin:0px !important; ">
+
+    <!-- The Drugs Modal -->
+    <partial name="_UploadDrugsPopupPartial" />
+    <!-- The Pharmacy Modal -->
+    <partial name="_UploadPharmaciesPopupPartial" />
+
+    <!--</nav>-->
+    <div class="nav-container">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#home">
+                <img src="~/Images/logo-blue.png" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">@localizer["Home"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#founder">@localizer["Founder"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-us">@localizer["About Us"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mission">@localizer["Mission&Vision"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#our-values">@localizer["Our Values"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#customers">@localizer["Our Customers"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-us">@localizer["Contact Us"]</a>
+                    </li>
+                </ul>
+                <partial name="_LandingPageLoginPartial" />
+            </div>
+        </nav>
+    </div>
+
+    <!-- Header-->
+    <header id="home">
+        <h1>@localizer["Gaza Central Warehouse Company for Pharmaceuticals and Medical Supplies"]</h1>
+        @if (ViewBag.PharmacyRole == "Admin")
+        {
+            <p class="description mb-0">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br />
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br />
+            </p>
+        }
+        else
+        {
+            <p class="description">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br />
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br />
+            </p>
+        }
+
+
+           @if (ViewBag.PharmacyRole != "Admin")
+        {
+            <p class="hint">@localizer["create first order"]</p>
+            <a href="/order/Create" class="btn btn-order">@localizer["Order Now"]<i class="fa fa-angle-double-right"></i> </a>
+        }
+
+      
+
+        @*<div class="midicine-img-div">
+            <img src="~/Images/midicine.png" />
+            </div>*@
+        <div class="d-flex flex-column icons">
+            <div class="mt-1"><img src="~/icons/phone.png" alt="" /></div>
+            <div class="mt-1"><img src="~/icons/letter.png" alt="" /></div>
+            <div class="mt-1"><img src="~/icons/printer.png" alt="" /> </div>
+        </div>
+        <div class="blackShadow"></div>
+    </header>
+
+    <section id="about-us">
+        <div class="content-section">
+            <h2 class="section-title">About Gaza Central Company</h2>
+            <p class="section-description">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever sin
+            </p>
+            <div class="about-us-container">
+                <div class="image">
+                    <img src="~/Images/national-cancer-institute-fTQHPb6r4wQ-unsplash.png" />
+                </div>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+                    a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum anged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing software like Aldus PageMaker including versions of Lorem Ipsum ved not only five centuries, but also the leap into electronic
+                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.
+
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="founder">
+        <div class="content-section">
+            <h2 class="section-title">Founder</h2>
+            <div class="founder-image mb-3">
+                <img src="~/Images/founder.png" height="" width="" />
+            </div>
+            <div class="founder-intro">
+                <p class="founder-word">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+                    a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum anged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+
+                </p>
+            </div>
+            <div class="founder-lines">
+                <ul>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar</li>
+                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standar</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="management">
+        <div class="content-section">
+            <h2 class="section-title">Management</h2>
+            <div class="management-cards">
+                <div class="card mx-sm-3 shadow">
+                    <div class="row no-gutters">
+                        <div class="col-md-2 text-center text-md-left ">
+                            <img class="card-img" src="/Images/girl-management.png" alt="Suresh Dasari Card">
+                        </div>
+                        <div class="col-md-10">
+                            <div class="card-body">
+                                <h5 class="card-title">Suresh Dasari</h5>
+                                <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+                                <hr />
+                                <p>
+                                    Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod,
+                                    iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                                    iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mx-sm-3 shadow">
+                    <div class="row no-gutters">
+                        <div class="col-md-2 text-center text-md-left">
+                            <img class="card-img" src="/images/man-management.png" alt="Suresh Dasari Card">
+                        </div>
+                        <div class="col-md-10">
+                            <div class="card-body">
+                                <h5 class="card-title">Suresh Dasari</h5>
+                                <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+                                <hr />
+                                <p>
+                                    Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod,
+                                    iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                                    iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mx-sm-3 shadow">
+                    <div class="row no-gutters">
+                        <div class="col-md-2 text-center text-md-left">
+                            <img class="card-img" src="/images/man-management.png" alt="Suresh Dasari Card">
+                        </div>
+                        <div class="col-md-10">
+                            <div class="card-body">
+                                <h5 class="card-title">Suresh Dasari</h5>
+                                <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+                                <hr />
+                                <p>
+                                    Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod,
+                                    iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                                    iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mx-sm-3 shadow">
+                    <div class="row no-gutters">
+                        <div class="col-md-2 text-center text-md-left">
+                            <img class="card-img" src="/images/man-management.png" alt="Suresh Dasari Card">
+                        </div>
+                        <div class="col-md-10">
+                            <div class="card-body">
+                                <h5 class="card-title">Suresh Dasari</h5>
+                                <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+                                <hr />
+                                <p>
+                                    Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod,
+                                    iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                                    iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+    <section id="mission">
+        <div class="row no-gutters">
+            <div class="col-lg-6 col-sm-12 no-gutters letter text-center">
+                <div>
+                    <div>
+                        <img src="~/Images/letter-logo.png" alt="" />
+                    </div>
+                    <h2 class="section-title">Our Letter</h2>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 no-gutters vision text-center">
+                <div>
+                    <div>
+                        <img src="~/Images/eye.png" alt="" />
+                    </div>
+                    <h2 class="section-title">Our Vision</h2>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-values">
+        <div class="content-section">
+            <h2 class="section-title">Our Values</h2>
+
+            <div class="our-values-cards">
+                <div class="row justify-content-center">
+                    <div class="card col-md-5 col-lg-2">
+                        <div class="card-body">
+                            <h5 class="card-title ">Card</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural</p>
+                        </div>
+                    </div>
+                    <div class="card col-md-5 col-lg-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Card</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural</p>
+                        </div>
+                    </div>
+                    <div class="card col-md-5 col-lg-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Card</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural</p>
+                        </div>
+                    </div>
+                    <div class="card col-md-5 col-lg-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Card</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="card col-md-5 col-lg-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Card</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural</p>
+                        </div>
+                    </div>
+                    <div class="card col-md-5 col-lg-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Card</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural</p>
+                        </div>
+                    </div>
+                    <div class="card col-md-5 col-lg-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Card</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural</p>
+                        </div>
+                    </div>
+                    <div class="card col-md-5 col-lg-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Card</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <section id="our-success">
+        <div class="content-section">
+            <h2 class="section-title">Ingredients of our success</h2>
+            <p class="section-description">
+                Lorem Ipsum is simply dummy text
+            </p>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 item ">
+                    <img class="d-inline-block" src="/icons/shape-icon.png" alt="" />
+                    <p class="d-inline-block">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s
+                    </p>
+                </div>
+                <div class="col-md-6 item">
+                    <img src="/icons/shape-icon.png" alt="" />
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s
+                    </p>
+                </div>
+                <div class="col-md-6 item">
+                    <img src="/icons/shape-icon.png" alt="" />
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s
+                    </p>
+                </div>
+                <div class="col-md-6 item">
+                    <img src="/icons/shape-icon.png" alt="" />
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s
+                    </p>
+                </div>
+                <div class="col-md-6 item">
+                    <img src="/icons/shape-icon.png" alt="" />
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s
+                    </p>
+                </div>
+                <div class="col-md-6 item">
+                    <img src="/icons/shape-icon.png" alt="" />
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s
+                    </p>
+                </div>
+                <div class="col-md-6 item">
+                    <img src="/icons/shape-icon.png" alt="" />
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s
+                    </p>
+                </div>
+                <div class="col-md-6 item">
+                    <img src="/icons/shape-icon.png" alt="" />
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="sales">
+        <div class="content-section">
+            <h2 class="section-title">sales representatives</h2>
+            <p class="section-description">
+                Lorem Ipsum is simply dummy text
+            </p>
+
+
+            <!-- Additional required wrapper -->
+            <div class="row justify-content-around ">
+                <div class=" mr-3 col-md-3 mx-3 col-sm-12">
+                    <div class="sales-box">
+                        <div class="sales-image">
+                            <img src="./Images/man.png" />
+                        </div>
+
+                        <div class="sales-info">
+                            <div class="sales-name">Salesperson Name</div>
+                            <div class="sales-number">
+                                <img src="./icons/call.png" />
+                                +970 599429919
+                            </div>
+
+                            <div class="sales-region ">
+                                <img src="~/icons/location2.png" alt="" />
+                                <h5>Gaza</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class=" mr-3 col-md-3 mx-3 col-sm-12">
+                    <div class="sales-box">
+                        <div class="sales-image">
+                            <img src="./Images/man.png" />
+                        </div>
+                        <div class="sales-info">
+                            <div class="sales-name">Salesperson Name</div>
+                            <div class="sales-number">
+                                <img src="./icons/call.png" />
+                                +970 598887893
+                            </div>
+
+                            <div class="sales-region ">
+                                <img src="~/icons/location2.png" alt="" />
+                                <h5>Gaza</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class=" mr-3 col-md-3 mx-3 col-sm-12">
+                    <div class="sales-box">
+                        <div class="sales-image">
+                            <img src="./Images/man.png" />
+                        </div>
+                        <div class="sales-info">
+                            <div class="sales-name">Salesperson Name</div>
+                            <div class="sales-number">
+                                <img src="./icons/call.png" />
+                                +970 598887894
+                            </div>
+
+                            <div class="sales-region ">
+                                <img src="~/icons/location2.png" alt="" />
+                                <h5>Gaza</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+
+    <section id="customers">
+        <div class="content-section">
+            <h2 class="section-title">Our Customers</h2>
+            <p class="section-description">
+                Lorem Ipsum is simply dummy text
+            </p>
+        </div>
+        @*        <div id="HomeMap" class="mb-2" style="width: 100%; height: 83.6vh;"></div>
+        *@
+    </section>
+
+    <section id="contact-us">
+        <div class="content-section">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-description">
+                Leave Us Your Message
+            </p>
+            <div class="contact-us-container">
+                <div class="contact-info">
+                    <div class="title">Get In Touch With Us...</div>
+                    <div class="contacts">
+                        <div class="contact">
+                            <img src="./icons/phone-2.png" />
+                            08 2864119
+                        </div>
+                        <div class="contact">
+                            <img src="./icons/email-2.png" />
+                            GazaCentralCompany@gmail.com
+                        </div>
+                        <div class="contact">
+                            <img src="./icons/printer-2.png" />
+                            08 2820674
+                        </div>
+                        <div class="contact">
+                            <img src="./icons/phone-2.png" />
+                            059 8887892
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label>Contact us now to send you an account number for your pharmacy</label>
+                        <input type="email" placeholder="Email" class="form-control" style="height: 50px;" /><br />
+                        <textarea placeholder="Enter Your Message" class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-order" type="submit">Submit <i class="fa fa-angle-double-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="order-now">
+
+        <div class="title">Would You Like To Create Your First Order Now?</div>
+        <a href="/order/Create" class="btn btn-order">Order Now <i class="fa fa-angle-double-right"></i></a>
+        <img src="~/Images/medicine2.png" alt="" />
+
+    </section>
+
+
+
+    <footer>
+        <div class="content-section">
+            <div class="footer-logo">
+                <img src="./Images/footer-logo.png" />
+            </div>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in th.
+            </p>
+            <div class="bottom-footer">
+                <div class="socail">
+                    <a href="javascript:void(0)"><img src="./Images/facebookLogog.png" /></a>
+                    <a href="javascript:void(0)"><img src="./Images/WhatsApp-Logo-Icon.png" /></a>
+                </div>
+                <div class="language-container">
+                    <span>Language</span>
+                    <div class="languages">
+                   @*     <form method="POST" id="ar" asp-controller="Home" asp-action="SetLanguage"
+                                >
+                            <input type="hidden" name="culture" value="ar-SA" />
+                            <input type="hidden" name="returnUrl" value="@Context.Request.Path.Value" />
+                     <a href="javascript:void(0)" onclick="this.submit()">En</a>
+                       <button type="submit">aaaaaaa</button> 
+                       </form>*@
+
+                       <a href="javascript:void(0)" onclick="ChangeLanguage('en-US','@Context.Request.Path.Value',this)" >En</a>
+                       <a href="javascript:void(0)" onclick="ChangeLanguage('ar-SA','@Context.Request.Path.Value',this)">العربية</a>
+                    </div>
+                </div>
+                @*<div class="btn-group">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                    </div>*@
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="~/lib/google/MarkerCluster.js" asp-append-version="true" defer></script>
+    @*<script src="~/js/actions.js" asp-append-version="true" defer></script>*@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="~/js/UploadExcelFile.js"></script>
+
+
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+    @*Call Notifications Script Js*@
+    <script src="~/js/Notifications.js"></script>
+
+    <script>
+    
+        function ChangeLanguage(culture, returnUrl, el)
+        {
+        
+            $.post("/Home/SetLanguage",{culture:culture,returnUrl:returnUrl}).done(e=> { location.reload();})
+            
+            
+            
+            //`<form method="POST"  asp-controller="Home"  asp-action="SetLanguage">
+            //                <input type="hidden" name="culture" value="${culture}" />
+            //                <input type="hidden" name="returnUrl" value="${returnUrl}" />
+            //  </form> `
+ 
+            //  $("form").submit();
+             
+        }
+    </script>
+
+</body>
+
+</html>

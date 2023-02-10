@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About Gaza Central Company" xml:space="preserve">
+    <value>About Gaza Central Company</value>
+  </data>
+  <data name="About Us" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="Body  Haifa Sharab" xml:space="preserve">
+    <value>She was born in the year 1948 AD and is considered one of the first women to enter the world of business and commerce in the Gaza Strip, and she held many administrative positions, including:
+Founding member and board member of the Middle East Laboratories Company for the Pharmaceutical and Cosmetics Manufacturing Company LLC.
+Chairman of the Board of Directors of the Gaza Central Warehouse Company for Pharmaceuticals and Medical Supplies.
+She has participated in many conferences and workshops related to local and international trade and economy, and has close relations with many businessmen, merchants, and public and private figures at the national level. She is a member of the Business Women Forum, in addition to her membership in the Palestinian Chamber of Commerce.</value>
+  </data>
+  <data name="Body  Nader  Sharab" xml:space="preserve">
+    <value>Born in 1968, he studied chemical engineering in Vienna and holds Austrian citizenship in addition to Palestinian citizenship. He is fluent in English and German in addition to Arabic. He is considered one of the prominent figures in society through his close relations with many international and local institutions and civil society institutions. He is considered an active participant in Many local and international political, commercial and economic conferences and workshops.
+In addition to his active membership in the following institutions:
+Member of the Palestinian Businessmen Association.
+Member of the Palestinian Chamber of Commerce.</value>
+  </data>
+  <data name="Body About Gaza Central Company" xml:space="preserve">
+    <value>Gaza Central Warehouse Company for Drugs and Medical Supplies was established in 2003, and it is an extension of the Gaza Central Drugstore, which was established by the late pharmacist Hassan Youssef Shurrab in the year 1983 AD in Gaza City as the first drug distribution warehouse in the Gaza Strip, and since then we have been working to meet the needs of the pharmaceutical market in the Gaza Strip. Gaza through the distribution and marketing of the best and finest medicines, whether local or foreign, with high professionalism, and the company plays a major role in the Palestinian pharmaceutical market, as the company provides many vital and necessary medicines to the residents of the Strip, through the company’s association with distinguished commercial relations with many foreign pharmaceutical companies and factories including Arabic,
+ With our professional and credible work, we are considered one of the largest drug distribution companies in Palestine, as we work to cover the pharmaceutical market in the Gaza Strip completely through dealing and accessing more than 500 drug selling points from pharmacies, private and public hospitals, health centers and institutions spread throughout the Strip Gaza, in addition to the Palestinian Ministry of Health and many international institutions operating in Palestine
+By adopting the forward integration strategy, two pharmacies affiliated to the company were established to serve as sales centers for medicines and products marketed by the company, in addition to some complementary and supportive products.</value>
+  </data>
+  <data name="Body Footer Contact Us" xml:space="preserve">
+    <value>Contact us now to send you an account number for your pharmacy</value>
+  </data>
+  <data name="Body Haitham Shurrab" xml:space="preserve">
+    <value>He was born in 1970. He holds a diploma in programming and public relations from Austria. He holds Austrian citizenship in addition to Palestinian citizenship. He is fluent in English and German in addition to Arabic. He is an active participant in many local and international conferences and trade fairs, and he is good at managing relationships with many commercial companies and financial institutions. In addition to the local and external community, and an active member of the Palestinian Chamber of Commerce.</value>
+  </data>
+  <data name="Body Our vision and mission" xml:space="preserve">
+    <value>We look forward as the first warehouse established in the Gaza Strip more than a quarter of a century ago to improve the public health of the Palestinian citizen and be at the forefront of pharmaceutical distribution companies in Palestine by providing all the needs of the Palestinian market of modern and high-quality medicines and medical supplies, and to continue investing and building partnership and exchange relations Trade with pharmaceutical companies and their agents on the one hand, and all public and private health institutions and centers spread in Palestine on the other hand, with the highest levels of efficiency and professionalism.
+ 
+Our mission is to market medicines that are registered and licensed for circulation with the competent authorities, and of high quality with the highest levels of professionalism, and to provide them to all parts of the Gaza Strip in proportion to all segments of society and to ensure that they reach patients who need them at the right time, place and price.</value>
+  </data>
+  <data name="Body Saed Sharab" xml:space="preserve">
+    <value>He was born in the year 1976. He holds an MBA from Al-Azhar University in Gaza. He participated in many social activities in the Gaza Strip. He has a network of relations with academics, intellectuals and many Palestinian merchants in various fields. He participated in many voluntary activities, including holding a course in pharmaceutical marketing for a large group. From pharmacists through the Palestine Pharmacists Syndicate,
+In addition to his membership in the following institutions:
+Member of the Palestinian Economists Association.
+Member of the Palestinian Chamber of Commerce.</value>
+  </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="create first order" xml:space="preserve">
+    <value>Let’s create your first order</value>
+  </data>
+  <data name="Footer Contact Us" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="Founder" xml:space="preserve">
+    <value>Founder</value>
+  </data>
+  <data name="Founder &amp; Board of Directors" xml:space="preserve">
+    <value>Founder &amp; Board of Directors</value>
+  </data>
+  <data name="Gaza Central Company" xml:space="preserve">
+    <value>Gaza Central Company</value>
+  </data>
+  <data name="Haifa Sharab" xml:space="preserve">
+    <value>Haifa Sharab</value>
+  </data>
+  <data name="Haitham Shurrab" xml:space="preserve">
+    <value>Haitham Shurrab</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Left Body Founder &amp; Board of Directors" xml:space="preserve">
+    <value>Spread throughout the Gaza Strip, and occupied many administrative positions for many professional institutions and charitable, economic and financial institutions during his life, including the following:
+Chairman of the Administrative Board of the Palestinian Arab Medical Society, which represented the Physicians and Pharmacists Syndicate, and a member of the Administrative Board in it for several sessions., Member of the Palestinian National Council, Vice-President of the Palestinian Health Council of the Palestinian Red Crescent., Member of the Board of Directors and founder of the Patient’s Friends Charitable Society., Chairman of the Board of Directors and founder of the Gaza Central Drug Store, the first drug distribution warehouse in the Gaza Strip. Founding member and Chairman of the Board of Directors of the Middle East Laboratories Company for the Pharmaceutical and Cosmetic Industry LLC.
+, Member of the first elected board of directors of the Palestinian Chamber of Commerce, and the winner of the highest votes in those elections., Member of the Board of Directors of Bank of Palestine Ltd., Chairman of the Board of Directors and founder of the Gaza Central Warehouse Company for Drugs and Medical Supplies.</value>
+  </data>
+  <data name="Mission&amp;Vision" xml:space="preserve">
+    <value>Mission&amp;Vision</value>
+  </data>
+  <data name="Nader  Sharab" xml:space="preserve">
+    <value>Nader  Sharab</value>
+  </data>
+  <data name="Order Now" xml:space="preserve">
+    <value>Order Now</value>
+  </data>
+  <data name="Our Customers" xml:space="preserve">
+    <value>Our Customers</value>
+  </data>
+  <data name="Our Team" xml:space="preserve">
+    <value>Our Team</value>
+  </data>
+  <data name="Our Values" xml:space="preserve">
+    <value>Our Values</value>
+  </data>
+  <data name="Our vision and mission" xml:space="preserve">
+    <value>Our vision and mission</value>
+  </data>
+  <data name="Right Body Founder &amp; Board of Directors" xml:space="preserve">
+    <value>He was born in the year 1944 AD and is considered one of the first pharmacists in the Gaza Strip. He obtained a master’s degree in pharmaceutical sciences from the University of Vienna, Austria in the year 1969 AD.
+Although he was born into a family that owns many major commercial, agricultural and industrial companies that existed after graduating from the university, he went immediately upon his return to the homeland from Austria to work in the service of his people in the field of his professional specialization as a pharmacist in hospitals in the Gaza Strip to perform his professional mission.
+ And through his work as a pharmacist in the hospitals of the sector and his knowledge of the suffering of patients in obtaining the necessary and necessary medicines for them, he decided in the year 1983 AD to move from working in the public sector to establish the first drug warehouse as a private company to work to provide patients’ needs of modern and developed medicines on the one hand and contribute to maintaining Pharmaceutical security for the Gaza Strip, on the other hand, in continuation to its professional mission, which is still working on behalf of the Gaza Central Warehouse Company for Drugs and Medical Appliances, and established the Middle East Factory for Pharmaceutical Industries and Cosmetics with a group of colleagues in the year 1994 AD,
+ He also participated in and contributed to many volunteer and service activities</value>
+  </data>
+  <data name="Saed Sharab" xml:space="preserve">
+    <value>Saed Sharab</value>
+  </data>
+  <data name="sales representatives" xml:space="preserve">
+    <value>sales representatives</value>
+  </data>
+  <data name="Sub  Haifa Sharab" xml:space="preserve">
+    <value>Chairman of the Board</value>
+  </data>
+  <data name="Sub  Nader  Sharab" xml:space="preserve">
+    <value>Vice Chairman and General Manager and Director of Public Sector Sales and Institutions "Tenders"</value>
+  </data>
+  <data name="Sub About Gaza Central Company" xml:space="preserve">
+    <value>Gaza Central Warehouse Company for Pharmaceuticals and Medical Appliances was established in 2003</value>
+  </data>
+  <data name="Sub Footer Contact Us" xml:space="preserve">
+    <value>Leave Us Your Message</value>
+  </data>
+  <data name="Sub Haitham Shurrab" xml:space="preserve">
+    <value>Member of the Board of Directors, Director of Public Relations and Chief Financial Officer</value>
+  </data>
+  <data name="Sub Saed Sharab" xml:space="preserve">
+    <value>Board Member, Director of Private Market Sales</value>
+  </data>
+  <data name="Sub sales representatives" xml:space="preserve">
+    <value>Our sales representatives are located in various regions of the Gaza Strip</value>
+  </data>
+  <data name="SubHeader" xml:space="preserve">
+    <value>Gaza Central Warehouse Company for Pharmaceuticals and Medical Supplies</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+</root>

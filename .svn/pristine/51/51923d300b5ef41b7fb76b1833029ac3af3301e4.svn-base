@@ -1,0 +1,184 @@
+﻿@section Styles{
+    @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.css" />*@
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        tr.group,
+        tr.group:hover {
+            background-color: #ddd !important;
+        }
+
+        div.container {
+            width: 80%;
+        }
+    </style>
+}
+
+<div class="row accountInfo">
+    <div class="col-md-3 bg-light p-0">
+        <partial name="_AsidePartial" />
+    </div>
+    <div class="col-lg-9  mt-5 accountInfoHead">
+        <div class="d-flex justify-content-between pb-2 arabic-Div currAndArchHeader" style="border-bottom: 3px solid">
+            <div class="font-weight-bolder">
+                @localizer["Archived Orders"]
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <table id="example" class="table  table-responsive-lg table-responsive-xl row-border hover table-checkable display" style="width:100%;margin-top: 13px !important">
+                <thead>
+                    <tr>
+                        <th>createdAt</th>
+                        <th>DrugId</th>
+                        <th>Drug Name</th>
+                        <th>Quantity</th>
+                        <th>Price Per Unit</th>
+                        <th>Total Price</th>
+                        <th>Order Status</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts{
+    @*<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.js"></script>*@
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js">
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        //Change Active Class
+        $("li").removeClass('active');
+        $(".archived-orders").addClass('active');
+
+        var KTDatatablesDataSourceAjaxServer = function () {
+
+            $.fn.dataTable.Api.register('column().title()', function () {
+                return $(this.header()).text().trim();
+            });
+
+            var initTable1 = function () {
+                //var table = $('#example');
+
+                // begin first table
+                var table = $('#example').DataTable({
+                    //order: [[1, 'desc']],
+                    drawCallback: function (settings) {
+                        var api = this.api();
+                        var rows = api.rows({ page: 'current' }).nodes();
+                        var last = null;
+
+                        api.column(0, { page: 'current' }).data().each(function (group, i) {
+                            if (last !== group) {
+
+                                $(rows).eq(i).before(
+                                    `<tr style="background-color:#D4EDF9 !important;" class="group"><td colspan="7">
+                                    <span class= "order-datetime"> ${group} </span> <a href="/order/create?PharmacyOrdersId=${api.row(i).data().pharmacyOrderId}"
+                                                                            class="float-right">
+                                                                            Total Price: ${api.row(i).data().archivedTotalPricePharmacyOrders} NIS
+                                                                            <i class="fa fa-repeat"></i>
+                                                                            </a></td></tr>`
+                                );
+
+                                last = group;
+                            }
+                        });
+                    },
+                    responsive: true,
+                    searchDelay: 500,
+                    processing: true,
+                    serverSide: true,
+                    dom: '<"row"lr><"row"<"col-xs-12 col-lg-12"t>><"row"<"col-sm-6"i><"col-sm-6"p>>',
+                    language: {
+                        "infoFiltered": "",
+                        "processing": `<div style="margin-top:4%"><i class="fa fa-spinner fa-spin fa-3x fa-fw" ></i><span class="sr-only">Loading...</span></div> `
+                    },
+
+                    ajax: {
+                        url: '/Order/PharmacyArchivedOrders?pharmacyOrdersId=@ViewBag.pharmacyOrdersId',
+                        type: 'POST',
+                        dataType: "json",
+                        data: function (d) {
+
+                            d.columnsDef = ['createdAtString', 'drugId', 'drugName', 'pricePerUnit', "quantity"
+                                , 'totalPrice', 'status']
+                        }
+                    },
+                    columns: [
+
+                        { data: 'createdAtString', "autowidth": true, orderable: false },
+                        { data: 'drugId', "autowidth": true, orderable: false, className: "text-center", className: "text-center" },
+                        { data: 'drugName', "autowidth": true, orderable: false },
+                        { data: 'quantity', "autowidth": true, orderable: false, className: "text-center" },
+                        { data: 'pricePerUnit', "autowidth": true, orderable: false, className: "text-center" },
+                        { data: 'totalPrice', "autowidth": true, orderable: false, className: "text-center" },
+                        { data: 'status', "autowidth": true, orderable: false, className: "text-center" },
+
+                    ],
+
+
+                    columnDefs: [
+
+                        {
+                            targets: 0, "visible": false
+                        },
+
+                        {
+                            targets: 6,
+                            render: function (data, type, full, meta) {
+                                var status = {
+                                    1: { 'title': 'Pending', 'class': 'label-light-primary' },
+                                    2: { 'title': 'Completed', 'class': ' label-light-danger' },
+                                    3: { 'title': 'Canceled', 'class': ' label-light-primary' },
+
+                                };
+                                if (typeof status[data] === 'undefined') {
+                                    return data;
+                                }
+                                return '<span class="label label-lg font-weight-bold' + status[data].class + ' label-inline">' + status[data].title + '</span>';
+                            },
+                        },
+
+
+                    ],
+                });
+
+
+            };
+
+            return {
+
+                //main function to initiate the module
+                init: function () {
+                    initTable1();
+                },
+
+            };
+
+        }();
+
+        jQuery(document).ready(function () {
+            KTDatatablesDataSourceAjaxServer.init();
+        });
+
+        //// Add Style To Select Box
+        //$(document).ready(function () {
+        //    $("#example_length").addClass('ml-3');
+        //});
+    </script>
+}

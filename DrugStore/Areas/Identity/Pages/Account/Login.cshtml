@@ -1,0 +1,85 @@
+﻿@page
+@model LoginModel
+@{
+    Layout = null;
+}
+@*Start Localization To All Views (Support Multi Languages)*@
+@using Microsoft.Extensions.Localization;
+@inject IStringLocalizer<LoginModel> localizer
+@*End Localization To All Views (Support Multi Languages)*@
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href="~/css/DrugStoreStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="First_Div col-md-6 col-sm-12">
+                @if (ViewData["LoginResult"] is not null)
+                {
+                    <div class="alert alert-danger alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        @ViewData["LoginResult"]
+                    </div>
+                }
+
+                <div class="header">
+                    <h3>
+                        @localizer["Get Started"]
+                        <i class="fas fa-arrow-right"></i>
+                    </h3>
+                    <p> @localizer["Sub Get Started"]</p>
+                </div>
+                <form class="body" id="account" method="post">
+                    <div class="Icon-inside form-group">
+                        <input asp-for="Input.UserName" class="form-control" placeholder="@localizer["UserName"]">
+                        <img src="~/Images/PharmacyIcon.png" alt="Alternate Text" />
+                        <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="Icon-inside form-group">
+                        <input asp-for="Input.Password" class="form-control" placeholder="@localizer["Password"]">
+                        <i class="fas fa-lock"></i>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="Input.RememberMe" />
+                                @localizer["Remember me"]
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">
+                        @localizer["Login"]
+                        <i class="fas fa-angle-double-right"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="Second_Div col-md-6 col-sm-12">
+                <div class="Child_Second_Div">
+                    <div class="Sub_Child">
+                        <img src="~/Images/Login_2.png" alt="Alternate Text" />
+                        <h3>@localizer["Gaza Central Company"]</h3>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15 ummy text ever since the 15
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Bootstrap And Jquery Librarys*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,56 @@
+﻿var map;
+var homeMarkers = [];
+var MainMap = function () {
+    return {
+        main: function () {
+            let HomeMap = new google.maps.Map(document.getElementById('HomeMap'), {
+                center: { lat: 31.437480, lng: 34.376295 },
+                zIndex: 10,
+                zoom: 11,
+                minZoom: 7,
+                disableDefaultUI: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: false,
+                streetViewControl: true,
+                rotateControl: true,
+                fullscreenControl: false,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position: google.maps.ControlPosition.TOP_RIGHT,
+                    zIndex: 10,
+                },
+                clickableIcons: false
+            });
+            map = HomeMap;
+        },
+        addPharmacyMarkers: function () {
+            $.get("/Map/HomeMap", function (rows) {
+                for (var i = 0; i < rows.data.length; i++) {
+                    if (rows.data[i].latitude != null && rows.data[i].longitude != null) {
+                        let marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(rows.data[i].latitude, rows.data[i].longitude),
+                        });
+                        homeMarkers.push(marker);
+                    }
+                }
+                new MarkerClusterer(map, homeMarkers, {
+                    styles: [{
+                        url: '/images/markers/m1.png',
+                        width: 53,
+                        height: 53,
+                        textColor: "white"
+                    }],
+                    maxZoom: 16,
+                    ignoreHidden: true
+                });
+            });
+        }
+    }
+}
+$(document).ready(function () {
+    setTimeout(function () {
+        MainMap().main();
+        MainMap().addPharmacyMarkers();
+    }, 100);
+});

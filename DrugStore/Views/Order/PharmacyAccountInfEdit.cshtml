@@ -1,0 +1,179 @@
+﻿
+<div class="container">
+    <div class="row accountInfo">
+        <div class="col-md-3 bg-light p-0">
+            <partial name="_AsidePartial" />
+        </div>
+        <div class="col-md-9 accountInfoHead mt-5 mt-lg-0">
+            <h4 class="font-weight-bold">
+                @localizer["Account Information"]
+                <img id="edit-information" src="~/icons/edit-icon.png" alt="" />
+            </h4>
+            <div class="card accountInfoBody">
+                <div class="card-body">
+                    <div class="row form-group">
+                        <div class="col-md-3">
+                            <h5>@localizer["Pharmacy Name"]</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" id="PharmacyName" name="name" value="@ViewBag.PahrmacyName" readonly />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">
+                            <h5>@localizer["Account Number"]</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" value="@ViewBag.PharAccountNumber" readonly />
+                        </div>
+                    </div>
+                    <div class="row form-group parentPass">
+                        <div class="col-md-3    ">
+                            <h5>@localizer["Password"]</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="password" name="password" value="*******" readonly />
+                        </div>
+                        <a id="UpdatePass" class="ml-3 mt-2 font-weight-bold" href="#">@localizer["Update Password?"]</a>
+                    </div>
+                </div>
+            </div>
+            <div class="buttonUpdaetInfo">
+                <button class="btn btn-primary d-none" id="update-button">@localizer["Update"]</button>
+            </div>
+
+
+            <div class="mt-5">
+                <div> <p class="d-inline">@localizer["Pharmacy Location"]</p>  <img id="edit-location" src="~/icons/edit-icon.png" alt="" /> </div>
+
+                <div class="mt-2">
+                    <span class="font-weight-bold">@localizer["Location"] </span>
+                    <span> Gaza - AlRimal- Aljalaaa Street</span>
+                </div>
+            </div>
+
+            @*modal*@
+            <button type="button" class="btn btn-primary d-none modal-button" data-toggle="modal" data-target="#exampleModalCenter">
+                Launch demo modal
+            </button>
+            @*end modal*@
+
+            @*modal*@
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">@localizer["Change Location"]</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-2"></div>
+                                <div class="col-4">
+                                    <div class="form-inline mr-2">
+                                        <label for="LatitudeInputLocationChanger">@localizer["Latitude"]</label>
+                                        <input type="text" class="form-control ml-3" id="LatitudeInputLocationChanger" placeholder="example: 31.437480">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-inline">
+                                        <label for="LongitudeInputLocationChanger">@localizer["Longitude"]</label>
+                                        <input type="text" class="form-control ml-3" id="LongitudeInputLocationChanger" placeholder="example: 34.376295">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="ChangeLocationDiv" class="" style="width: 100%; height: 63.6vh;"></div>
+                            </div>
+                            <div class="row d-flex flex-row-reverse">
+                                @*   <button class="btn btn-success mt-3" id="changeLocationMapBtn">Done</button>*@
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">@localizer["Close"]</button>
+                            <button id="changeLocationMapBtn" type="button" class="btn btn-primary">@localizer["Save changes"]</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* endmodal*@
+        </div>
+
+
+        <!-- Change Pharmacy Password Modal  -->
+        <partial name="_ChangePasswordPartial" />
+
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/ChangeLocationMap.js" asp-append-version="true" defer></script>
+    <script src="~/js/ChangePassword.js"></script>
+    <script>
+        //Show Or Hide Update Password link
+        $("#UpdatePass").hide();
+        $("#UpdatePass").parents('.parentPass').mouseenter(function () {
+            $("#UpdatePass").css("color", "#EE0E08");
+            $("#UpdatePass").show();
+        });
+        $("#UpdatePass").parents('.parentPass').mouseleave(function () {
+            $("#UpdatePass").hide();
+        });
+
+        // Hold Pharmacy Name In Var
+        var pharName = $("#PharmacyName").val();
+        $("#edit-location").click(function () {
+            $(".modal-button").click();
+        })
+
+        $("#edit-information").click(function () {
+            $("input[name='name']").prop("readonly", false);
+            $("#update-button").removeClass("d-none");
+            $(this).hide();
+        })
+
+        // Change Pharmacy Name
+        $("#update-button").click(function () {
+            $("input[name='name']").prop("readonly", true);
+            $("#update-button").addClass("d-none");
+            $("#edit-information").show();
+            var pharmacyName = $("#PharmacyName").val();
+            $.ajax({
+                method: "Post",
+                url: "/Order/PharmacyAccountInfEdit",
+                data: { PharmacyName: pharmacyName },
+                success: function (data) {
+                    if (data.status) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Done',
+                            text: 'Your pharmacy name has updated successfully'
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Please Enter New Name!'
+                        });
+                        //If Found Error Set Default Name
+                        $("#PharmacyName").val(pharName);
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Found Some Error!'
+                    });
+                    //If Found Error Set Default Name
+                    $("#PharmacyName").val(pharName);
+                }
+            });
+        });
+
+    </script>
+}

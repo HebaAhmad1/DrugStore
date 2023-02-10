@@ -1,0 +1,425 @@
+﻿a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background: #F9F9F9;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #d2ecf9;
+    color: #216F97;
+}
+
+    .nav-pills .nav-link.active span {
+        color: #216F97 !important;
+        font-size: 18px !important;
+    }
+
+.nav-pills .nav-link span {
+    color: #707070 !important;
+    font-size: 18px !important;
+}
+
+/*======================== my Code ========================*/
+.search-input {
+}
+
+find-submit {
+    width: 16.666%
+}
+
+
+.Icon-inside {
+    position: relative;
+}
+
+    .Icon-inside i, .Icon-inside img {
+        position: absolute;
+        left: 4%;
+        top: 50%;
+        padding: 9px 10px 5px 10px;
+        color: #b1b1b1;
+    }
+
+
+.custom-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* Hiding the initial checkbox */
+/*input[type=checkbox] {
+    visibility: hidden;
+}*/
+/* Creating a custom checkbox based on demand */
+.custom-checkbox-span {
+    position: absolute;
+    top: 3px;
+    left: 18px;
+    height: 24px;
+    width: 22px;
+    background-color: #168305;
+    border: none;
+}
+/* Specify the background color to be shown when hovering over checkbox */
+.custom-checkbox:hover input ~ .custom-checkbox-span {
+    background-color: #168305;
+}
+/* Specify the background color to be shown when checkbox is active */
+.custom-checkbox input:active ~ .custom-checkbox-span {
+    background-color: #168305;
+}
+/* Specify the background color to be shown when checkbox is checked */
+.custom-checkbox input:checked ~ .custom-checkbox-span {
+    background-color: #168305;
+}
+/* Checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.custom-checkbox-span:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* Display checkmark when checked */
+.custom-checkbox input:checked ~ .custom-checkbox-span:after {
+    display: block;
+}
+/* Styling the checkmark using webkit */
+/* Rotated the rectangle by 45 degree and 
+      showing only two border to make it look
+      like a tickmark */
+.custom-checkbox .custom-checkbox-span:after {
+    left: 8px;
+    bottom: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: #168305;
+}
+
+
+
+.Icon-inside input {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 4px;
+    box-sizing: border-box;
+    padding-left: 36px;
+}
+
+.background-selver {
+    background-color: #e9ecef;
+    padding: 20px;
+}
+
+.creating-order-elements {
+    margin: 20%
+}
+
+
+
+.create-order-tabel {
+}
+
+
+    .create-order-tabel thead th {
+        background-color: #D4EDF9;
+    }
+
+.green-button {
+    background-color: #168305;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+}
+
+.blue-button {
+    background-color: #0093dd;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    margin-top: 8px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #d2ecf9;
+    color: #216F97;
+}
+
+    .nav-pills .nav-link.active span {
+        color: #216F97 !important;
+        font-size: 18px !important;
+    }
+
+.nav-pills .nav-link span {
+    color: #707070 !important;
+    font-size: 18px !important;
+}
+
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-left: 40px !important;
+    padding-top: 7px !important;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 40px !important;
+}
+
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 7px !important;
+    }
+
+
+
+
+
+
+/*landing page*/
+
+.landing-home {
+    background-image: url('../Images/blue Rectangle.png');
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead {
+    min-height: 30rem;
+    position: relative;
+    display: table;
+    width: 100%;
+    height: auto;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url('../Images/blue Rectangle.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden;
+}
+
+@media (min-width: 992px) {
+    .masthead {
+        height: 100vh;
+    }
+
+    .masthead h1, .masthead .h1 {
+        font-size: 5.5rem;
+    }
+}
+
+.midicine-img-div {
+    position: absolute;
+    right: 70%;
+    top: 30%;
+}
+
+.medicine2-img-div {
+    position: absolute;
+    top: 79%;
+    left: 77%;
+}
+
+.home-section-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.btn-custom {
+    color: #ffffff;
+    background-color: #A7CC3A;
+    border-radius: 30px;
+}
+
+.content-section {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+}
+
+.content-section-heading h2, .content-section-heading .h2 {
+    font-size: 3rem;
+}
+
+.content-section-heading h3, .content-section-heading .h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.btn-xl {
+    padding: 1.25rem 2.5rem;
+}
+
+.px-lg-5 {
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.px-4 {
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+}
+
+
+
+
+/*----------carousel----------------*/
+@media (max-width: 768px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+
+        .carousel-inner .carousel-item > div:first-child {
+            display: block;
+        }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(33.333%);
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-33.333%);
+    }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left {
+    transform: translateX(0);
+}
+
+
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; 
+/*                 position:relative;
+*/
+}
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { 
+            text-align: center; 
+/*            padding:10px; 
+*/            
+            margin:10px;
+            background:#f1f1f1; 
+            color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { 
+/*        position:absolute;
+*/        border-radius:50%;
+/*        top:calc(50% - 20px);
+*/
+    }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+    
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+
+.MultiCarousel p{margin-bottom:0}

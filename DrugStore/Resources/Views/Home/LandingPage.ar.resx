@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About Gaza Central Company" xml:space="preserve">
+    <value>عن شركة مستودع غزة</value>
+  </data>
+  <data name="About Us" xml:space="preserve">
+    <value>من نحن</value>
+  </data>
+  <data name="Board member and founder of the Patient Friends Charitable Society" xml:space="preserve">
+    <value>عضو مجلس إدارة ومؤسس في جمعية أصدقاء المريض الخيرية</value>
+  </data>
+  <data name="Body  Haifa Sharab" xml:space="preserve">
+    <value>ولدت في العام 1948م وتعتبر من أوائل السيدات اللاتي دخلن عالم الأعمال والتجارة في قطاع غزة, وشغلت العديد من المناصب الإدارية منها
+عضو مؤسس وعضو مجلس إدارة في شركة معامل الشرق الأوسط لصناعة الأدوية ومستحضرات التجميل م.ع.م.
+رئيس مجلس الإدارة في شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية.
+شاركت في العديد من المؤتمرات وورش العمل المتعلقة بالتجارة والاقتصاد المحلية منها والدولية وتمتلك علاقات وطيدة مع العديد من رجال الأعمال والتجار وشخصيات عامة وخاصة على مستوى الوطن, وهي عضو في منتدى سيدات الأعمال بالإضافة لعضويتها في الغرفة التجارية الفلسطينية.</value>
+  </data>
+  <data name="Body  Nader  Sharab" xml:space="preserve">
+    <value>ولد في العام 1968م درس الهندسة الكيميائية في فينا وحاصل على الجنسية النمساوية بالإضافة إلى الجنسية الفلسطينية يجيد وبطلاقة اللغة الإنجليزية والألمانية إلى جانب اللغة العربية, يعتبر من الشخصيات البارزة في المجتمع من خلال علاقاته الوطيدة مع العديد من المؤسسات الدولية والمحلية ومؤسسات المجتمع المدني ويعتبر مشارك فاعل في العديد من المؤتمرات وورش العمل السياسية والتجارية والاقتصادية المحلية منها والدولية. بالإضافة إلى عضويته الفعالة في المؤسسات التالية:
+.عضو في جمعية رجال الأعمال الفلسطينيين.
+عضو في الغرفة التجارية الفلسطينية</value>
+  </data>
+  <data name="Body About Gaza Central Company" xml:space="preserve">
+    <value>شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية, هي امتداد لمستودع أدوية غزة المركزي الذي قام بتأسيسه المرحوم الصيدلي حسن يوسف شراب في العام 1983م في مدينة غزة كأول مستودع لتوزيع الأدوية في قطاع غزة, ومنذ ذلك الحين نعمل على تلبية احتياجات السوق الدوائي في قطاع غزة من خلال توزيع وتسويق أفضل وأجود الأدوية سواء كانت محلية أو أجنبية بمهنية عالية, وتلعب الشركة دور كبير في السوق الدوائي الفلسطيني بحيث تقوم الشركة بتوفير العديد من الأدوية الحيوية والضرورية لسكان القطاع وذلك من خلال ارتباط الشركة بعلاقات تجارية مميزة مع العديد من شركات ومصانع الأدوية الأجنبية منها والعربية,
+ وبمسيرتنا في العمل بمهنية ومصداقية نعتبر من كبرى شركات توزيع الأدوية في فلسطين, حيث نعمل على تغطية سوق الأدوية في قطاع غزة بشكل كامل من خلال التعامل والوصول إلى ما يزيد عن 500 نقطة بيع للأدوية من صيدليات ومستشفيات خاصة وعامة ومراكز ومؤسسات صحية منتشرة في كافة أنحاء قطاع غزة بالإضافة إلى وزارة الصحة الفلسطينية والعديد من المؤسسات الدولية العاملة في فلسطين
+وبتبني إستراتيجية التكامل للأمام تم إنشاء صيدليتان تابعتان للشركة تعملان كمراكز بيعيه للأدوية والمنتجات التي تسوق من قبل الشركة بالإضافة إلى بعض المنتجات المكملة والمساندة.</value>
+  </data>
+  <data name="Body Footer Contact Us" xml:space="preserve">
+    <value>اتصل بنا الآن لنرسل لك رقم حساب للصيدلية الخاصة بك</value>
+  </data>
+  <data name="Body Haitham Shurrab" xml:space="preserve">
+    <value>ولد في العام 1970م حاصل على دبلوم في البرمجة والعلاقات العامة من النمسا ويحمل الجنسية النمساوية بالإضافة إلى الجنسية الفلسطينية ويجيد اللغة الإنجليزية والألمانية إلى جانب اللغة العربية, وهو مشارك فعال في العديد من المؤتمرات والمعارض التجارية المحلية والدولية ويجيد إدارة العلاقات مع العديد من الشركات التجارية والمؤسسات المالية بالإضافة إلى المجتمع المحلي والخارجي, وعضو فاعل في الغرفة التجارية الفلسطينية.</value>
+  </data>
+  <data name="Body Our vision and mission" xml:space="preserve">
+    <value>نتطلع كأول مستودع أنشأ في قطاع غزة منذ أكثر من ربع قرن من الزمان للارتقاء بالصحة العامة للمواطن الفلسطيني ونكون في مقدمة شركات توزيع الأدوية في فلسطين من خلال توفير كافة احتياجات السوق الفلسطيني من الأدوية والمستلزمات الطبية الحديثة وذات الجودة العالية, والاستمرار في الاستثمار وبناء علاقات الشراكة والتبادل تجاري مع الشركات المنتجة للأدوية ووكلائهم من ناحية وكافة المؤسسات والمراكز الصحية العامة والخاصة المنتشرة في فلسطين من ناحية أخرى بأعلى درجات الكفاءة والمهنية.
+ 
+رسالتنا تسويق الأدوية المسجلة والمرخصة للتداول لدى جهات الاختصاص, وذات الجودة العالية بأعلى درجات المهنية, وتوفيرها لكافة أنحاء قطاع غزة بما يتناسب مع كافة شرائح المجتمع وضمان وصولها للمرضى المحتاجين لها بالوقت والمكان والسعر المناسب.</value>
+  </data>
+  <data name="Body Saed Sharab" xml:space="preserve">
+    <value>ولد في العام 1976م حاصل على ماجستير إدارة الأعمال من جامعة الأزهر بغزة شارك بالعديد من النشاطات الاجتماعية في قطاع غزة لديه شبكة من العلاقات مع الأكاديميين والمثقفين والعديد من التجار الفلسطينيين في مختلف المجالات, ساهم في العديد من النشاطات التطوعية منها عقد دورة في التسويق الصيدلاني لمجموعة كبيرة من الصيادلة من خلال نقابة صيادلة فلسطين,
+بالإضافة إلى عضويته في المؤسسات التالية:
+عضو في جمعية الاقتصاديين الفلسطينيين.
+عضو في الغرفة التجارية الفلسطينية.</value>
+  </data>
+  <data name="Chairman and founder of the Gaza Central Warehouse Company for Pharmaceuticals and Medical Supplies" xml:space="preserve">
+    <value>رئيس مجلس إدارة ومؤسس في شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية</value>
+  </data>
+  <data name="Chairman of the Administrative Board of the Palestinian Arab Medical Association, which represented the Physicians and Pharmacists Syndicate, and a member of the Administrative Board for several sessions" xml:space="preserve">
+    <value>رئيسا للهيئة الإدارية للجمعية الطبية العربية الفلسطينية والتي كانت تمثل نقابة الأطباء والصيادلة, وعضواً للهيئة الإدارية فيها لعدة دورات</value>
+  </data>
+  <data name="Chairman of the Board of Directors and founder of the Gaza Central Drug Store, the first drug distribution warehouse in the Gaza Strip" xml:space="preserve">
+    <value>رئيس مجلس إدارة ومؤسس مستودع أدوية غزة المركزي أول مستودع لتوزيع الأدوية في قطاع غزة</value>
+  </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value>تواصل معنا</value>
+  </data>
+  <data name="Contact us now to send you an account number for your pharmacy" xml:space="preserve">
+    <value>تواصل معنا للحصول على رقم حساب صيدليتكم</value>
+  </data>
+  <data name="create first order" xml:space="preserve">
+    <value>أطلب طلبيتك الأولى الآن</value>
+  </data>
+  <data name="Daring" xml:space="preserve">
+    <value>الجرأة</value>
+  </data>
+  <data name="Daring Body" xml:space="preserve">
+    <value>نعمل بدون تردد وبشجاعة وإقدام تحت كل الظروف ونتحمل المخاطر</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>الايميل</value>
+  </data>
+  <data name="Enter Your Message" xml:space="preserve">
+    <value>ادخل رسالتك</value>
+  </data>
+  <data name="Excellence in performance" xml:space="preserve">
+    <value>الامتياز في الأداء</value>
+  </data>
+  <data name="Excellence in performance Body" xml:space="preserve">
+    <value>نسعى إلى تحقيق الامتياز في كل عمل نؤديه</value>
+  </data>
+  <data name="Footer Body" xml:space="preserve">
+    <value>شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية, هي امتداد لمستودع أدوية غزة المركزي الذي قام بتأسيسه المرحوم الصيدلي حسن يوسف شراب في العام 1983م في مدينة غزة كأول مستودع لتوزيع الأدوية في قطاع غزة,</value>
+  </data>
+  <data name="Footer Contact Us" xml:space="preserve">
+    <value>إتصل بنا</value>
+  </data>
+  <data name="Founder" xml:space="preserve">
+    <value>المؤسس</value>
+  </data>
+  <data name="Founder &amp; Board of Directors" xml:space="preserve">
+    <value>المؤسس و مجلس الإدارة</value>
+  </data>
+  <data name="Founding member and Chairman of the Board of Directors of the Middle East Laboratories for the Pharmaceutical and Cosmetics Manufacturing Company LLC" xml:space="preserve">
+    <value>عضو مؤسس ورئيس لمجلس إدارة شركة معامل الشرق الأوسط لصناعة الأدوية ومستحضرات التجميل م.ع.م</value>
+  </data>
+  <data name="Gaza Central Company" xml:space="preserve">
+    <value>شركة مستودع غزة المركزي</value>
+  </data>
+  <data name="Gaza Central Warehouse Company" xml:space="preserve">
+    <value>شركة مستودع غزة المركزي</value>
+  </data>
+  <data name="Gaza Central Warehouse Company for Pharmaceuticals and Medical Supplies" xml:space="preserve">
+    <value>شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية</value>
+  </data>
+  <data name="Haifa Sharab" xml:space="preserve">
+    <value>هيفاء شراب</value>
+  </data>
+  <data name="Haitham Shurrab" xml:space="preserve">
+    <value>هيثم شراب</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="Honesty" xml:space="preserve">
+    <value>الامانة</value>
+  </data>
+  <data name="Honesty Body" xml:space="preserve">
+    <value>أمناء في تعاملاتنا وكل عمل نؤديه</value>
+  </data>
+  <data name="Ingredients of our success" xml:space="preserve">
+    <value>مقومات نجاحنا</value>
+  </data>
+  <data name="Leave Us Your Message" xml:space="preserve">
+    <value>اترك لنا رسالتك</value>
+  </data>
+  <data name="Left Body Founder &amp; Board of Directors" xml:space="preserve">
+    <value>المنتشرة في أنحاء قطاع غزة, وشغل العديد من المناصب الإدارية للعديد من المؤسسات المهنية والجمعيات الخيرية منها والاقتصادية والمالية خلال فترة حياته نذكر منها الآتي:
+رئيسا للهيئة الإدارية للجمعية الطبية العربية الفلسطينية والتي كانت تمثل نقابة الأطباء والصيادلة, وعضواً للهيئة الإدارية فيها لعدة دورات., عضوا في المجلس الوطني الفلسطيني, نائب لرئيس المجلس الصحي الفلسطيني التابع للهلال الأحمر الفلسطيني., عضو مجلس إدارة ومؤسس في جمعية أصدقاء المريض الخيرية., رئيس مجلس إدارة ومؤسس مستودع أدوية غزة المركزي أول مستودع لتوزيع الأدوية في قطاع غزة., عضو مؤسس ورئيس لمجلس إدارة شركة معامل الشرق الأوسط لصناعة الأدوية ومستحضرات التجميل م.ع.م.
+, عضو في أول مجلس إدارة منتخب للغرفة التجارية الفلسطينية, وحائز على أعلى الأصوات في تلك الانتخابات., عضو مجلس إدارة في بنك فلسطين المحدود., رئيس مجلس إدارة ومؤسس في شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية.</value>
+  </data>
+  <data name="Management" xml:space="preserve">
+    <value>مجلس الادارة</value>
+  </data>
+  <data name="Member of the Board of Directors of Bank of Palestine Ltd" xml:space="preserve">
+    <value>عضو مجلس إدارة في بنك فلسطين المحدود</value>
+  </data>
+  <data name="Member of the first elected board of directors of the Palestinian Chamber of Commerce, and the winner of the highest votes in those elections" xml:space="preserve">
+    <value>عضو في أول مجلس إدارة منتخب للغرفة التجارية الفلسطينية, وحائز على أعلى الأصوات في تلك الانتخابات</value>
+  </data>
+  <data name="Member of the Palestinian National Council" xml:space="preserve">
+    <value>عضوا في المجلس الوطني الفلسطيني</value>
+  </data>
+  <data name="Mercy" xml:space="preserve">
+    <value>الرحمة</value>
+  </data>
+  <data name="Mercy Body" xml:space="preserve">
+    <value>نتراحم فيما بيننا, وبيننا وبين الآخرين</value>
+  </data>
+  <data name="Mission&amp;Vision" xml:space="preserve">
+    <value>رؤيتنا و رسالتنا</value>
+  </data>
+  <data name="Nader  Sharab" xml:space="preserve">
+    <value>نادر شراب</value>
+  </data>
+  <data name="Order Now" xml:space="preserve">
+    <value>أطلب الآن</value>
+  </data>
+  <data name="Our Customers" xml:space="preserve">
+    <value>عملاؤنا</value>
+  </data>
+  <data name="Our Customers in all regions of the Gaza Strip" xml:space="preserve">
+    <value>عملاؤنا في مختلف مناطق قطاع غزة</value>
+  </data>
+  <data name="Our Mission" xml:space="preserve">
+    <value>رسالتنا</value>
+  </data>
+  <data name="Our Mission Body" xml:space="preserve">
+    <value>رسالتنا تسويق الأدوية المسجلة والمرخصة للتداول لدى جهات الاختصاص, وذات الجودة العالية بأعلى درجات المهنية, وتوفيرها لكافة أنحاء قطاع غزة بما يتناسب مع كافة شرائح المجتمع وضمان وصولها للمرضى المحتاجين لها بالوقت والمكان والسعر المناسب.</value>
+  </data>
+  <data name="Our sales representatives in all regions of the Gaza Strip" xml:space="preserve">
+    <value>مندوبي مبيعاتنا في مختلف مناطق قطاع غزة</value>
+  </data>
+  <data name="Our Team" xml:space="preserve">
+    <value>فربقتنا</value>
+  </data>
+  <data name="Our Values" xml:space="preserve">
+    <value>قيمنا </value>
+  </data>
+  <data name="Our Vision" xml:space="preserve">
+    <value>رؤيتنا</value>
+  </data>
+  <data name="Our vision and mission" xml:space="preserve">
+    <value>رؤيتنا و رسالتنا</value>
+  </data>
+  <data name="Our Vision Body" xml:space="preserve">
+    <value>نتطلع كأول مستودع أنشأ في قطاع غزة منذ أكثر من ربع قرن من الزمان للارتقاء بالصحة العامة للمواطن الفلسطيني ونكون في مقدمة شركات توزيع الأدوية في فلسطين من خلال توفير كافة احتياجات السوق الفلسطيني من الأدوية والمستلزمات الطبية الحديثة وذات الجودة العالية, والاستمرار في الاستثمار وبناء علاقات الشراكة والتبادل تجاري مع الشركات المنتجة للأدوية ووكلائهم من ناحية وكافة المؤسسات والمراكز الصحية العامة والخاصة المنتشرة في فلسطين من ناحية أخرى بأعلى درجات الكفاءة والمهنية.</value>
+  </data>
+  <data name="Pharmaceutical professional" xml:space="preserve">
+    <value>المهنية الصيدلانية</value>
+  </data>
+  <data name="Pharmaceutical professional Body" xml:space="preserve">
+    <value>يغلب على عملنا الطابع المهني نهتم بالدرجة الأولى بتوصيل الدواء المناسب والفعال للمرضي قبل أي اعتبار</value>
+  </data>
+  <data name="Piety" xml:space="preserve">
+    <value>التقوى</value>
+  </data>
+  <data name="Piety Body" xml:space="preserve">
+    <value>نتقي الله في عملنا ومعاملاتنا 
+مع الآخرين</value>
+  </data>
+  <data name="Right Body Founder &amp; Board of Directors" xml:space="preserve">
+    <value>ولد في العام 1944م ويعتبر من أوائل الصيادلة في قطاع غزة حيث حصل على ماجستير في العلوم الصيدلانية من جامعة فينا بالنمسا في العام 1969م, 
+وعلى الرغم من أنه ولد لعائلة تمتلك العديد من الشركات التجارية والزراعية والصناعية الكبرى التي كانت قائمة بعد تخرجه من الجامعة إلا أنه توجه فور عودته إلى أرض الوطن من النمسا للعمل في خدمة أبناء شعبه في مجال تخصصه المهني كصيدلي في مستشفيات قطاع غزة ليؤدي رسالته المهنية,
+ ومن خلال عمله كصيدلي في مستشفيات القطاع واطلاعه على معاناة المرضى في الحصول على الأدوية اللازمة والضرورية لهم, قرر في العام 1983م الانتقال من العمل في القطاع العام ليؤسس أول مستودع  للأدوية كشركة خاصة ليعمل على توفير احتياجات المرضى من الأدوية الحديثة والمطورة من ناحية والمساهمة في الحفاظ على الأمن الدوائي لقطاع غزة من ناحية أخرى استكمالا لرسالته المهنية, والذي لايزال يعمل باسم شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية, كما وقام بتأسيس مصنع الشرق الأوسط للصناعات الدوائية ومستحضرات التجميل مع مجموعة من زملاؤه في العام 1994م,
+ كما شارك وساهم في العديد من الأنشطة التطوعية والخدمية</value>
+  </data>
+  <data name="Saed Sharab" xml:space="preserve">
+    <value>سائد شراب</value>
+  </data>
+  <data name="sales representatives" xml:space="preserve">
+    <value>مندوبي المبيعات</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="Staff development" xml:space="preserve">
+    <value>تطوير العاملين</value>
+  </data>
+  <data name="Staff development Body" xml:space="preserve">
+    <value>نعمل على تطوير موظفينا إلى أقصى الحدود</value>
+  </data>
+  <data name="Sub  Haifa Sharab" xml:space="preserve">
+    <value>رئيس مجلس الإدارة</value>
+  </data>
+  <data name="Sub  Nader  Sharab" xml:space="preserve">
+    <value>نائب رئيس مجلس الإدارة والمدير العام ومدير المبيعات للقطاع العام والمؤسسات "المناقصات"</value>
+  </data>
+  <data name="Sub About Gaza Central Company" xml:space="preserve">
+    <value>شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية تأسست في العام 2003م</value>
+  </data>
+  <data name="Sub Footer Contact Us" xml:space="preserve">
+    <value>اترك لنا رسالتك</value>
+  </data>
+  <data name="Sub Haitham Shurrab" xml:space="preserve">
+    <value>عضو مجلس الإدارة ، مدير العلاقات العامة والمدير المالي</value>
+  </data>
+  <data name="Sub Saed Sharab" xml:space="preserve">
+    <value>عضو مجلس الإدارة ، مدير مبيعات السوق الخاصة</value>
+  </data>
+  <data name="Sub sales representatives" xml:space="preserve">
+    <value>مندوبي مبيعاتنا في مختلف مناطق قطاع غزة</value>
+  </data>
+  <data name="SubHeader" xml:space="preserve">
+    <value>شركة مستودع غزة المركزي للأدوية والمستلزمات الطبية</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>أرسل</value>
+  </data>
+  <data name="Team spirit" xml:space="preserve">
+    <value>روح الفريق</value>
+  </data>
+  <data name="Team spirit Body" xml:space="preserve">
+    <value>نعمل يداً واحدة متكاتفين لتحقيق أهدافنا بنجاح تام</value>
+  </data>
+  <data name="The company has clear plans to deal with the future and emerging circumstances." xml:space="preserve">
+    <value>للشركة خطط واضحة للتعاطي مع المستقبل والظروف المستجدة.</value>
+  </data>
+  <data name="Vice President of the Palestinian Health Council of the Palestinian Red Crescent" xml:space="preserve">
+    <value>نائب لرئيس المجلس الصحي الفلسطيني التابع للهلال الأحمر الفلسطيني</value>
+  </data>
+  <data name="We have a large basket of pharmaceutical products" xml:space="preserve">
+    <value>لدينا سلة كبيرة من المنتجات الدوائية</value>
+  </data>
+  <data name="We have a strong and qualified management with scientific qualifications, diverse practical experiences and distinguished leadership." xml:space="preserve">
+    <value>لدينا إدارة قوية ومؤهلة تتمتع بمؤهلات علمية وخبرات عملية متنوعة وقيادية متميزة.</value>
+  </data>
+  <data name="We have a strong and stable board of directors that enjoys strong and solid relations with all influential parties in the Palestinian arena." xml:space="preserve">
+    <value>لدينا مجلس إدارة قوي ومستقر يتمتع بعلاقات قوية ومتينة مع كافة الأطراف المؤثرة في الساحة الفلسطينية.</value>
+  </data>
+  <data name="We have a young staff, highly trained, expert in his fields of work, consisting of 20 cadres of specialists and qualified in the various fields necessary for the nature of our work, including administrators, sales representatives, salesmen, accountants, pharmacists, pharmacy assistants, workers." xml:space="preserve">
+    <value>لدينا طاقم فتي، مدرب تدريب عالي، خبير في مجالات عمله مكون من 20 كادر من المتخصصين وذوي الكفاءة في المجالات المختلفة اللازمة لطبيعة عملنا من إداريين, مندوبي مبيعات, رجال بيع, محاسبين, صيادلة, مساعدين صيادلة, عمال.</value>
+  </data>
+  <data name="We have great financial and material capabilities as our owned assets exceed tens of times our trading volume." xml:space="preserve">
+    <value>نتمتع بإمكانيات مالية ومادية كبيرة حيث أن أصولنا المملوكة تتجاوز عشرات أضعاف حجم تداولاتنا التجارية.</value>
+  </data>
+  <data name="We have strong and distinguished relationships with agents, suppliers, customers and companies working in the field of pharmaceuticals" xml:space="preserve">
+    <value>تربطنا علاقات قوية ومتميزة مع الوكلاء والموردين والعملاء والشركات العاملة بمجال الأدوية</value>
+  </data>
+  <data name="We rely on advanced and appropriate technology and computerized programs in managing our activities and our relationship with our customers and suppliers, and we always strive to keep pace with developments in technology to provide the best that can be offered" xml:space="preserve">
+    <value>نعتمد على التكنولوجيا والبرامج المحوسبة المتطورة والمناسبة في إدارة أنشطتنا وعلاقتنا بعملائنا من الزبائن والموردين, ونسعى دئما وباستمرار لمواكبة التطورات في التكنولوجيا لتقديم أفضل ما يمكن تقديمه.</value>
+  </data>
+  <data name="Who has an honorable history has a present and a promising future" xml:space="preserve">
+    <value>من له تاريخ مشرف له حاضر ومستقبل واعد</value>
+  </data>
+  <data name="Would You Like To Create Your First Order Now?" xml:space="preserve">
+    <value>هل ترغب في إنشاء طلبك الأول الآن؟</value>
+  </data>
+</root>

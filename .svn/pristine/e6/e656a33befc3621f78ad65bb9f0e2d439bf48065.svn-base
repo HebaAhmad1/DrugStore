@@ -1,0 +1,17 @@
+﻿using DrugStoreInfrastructure.Services.Authenticate;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+
+namespace DrugStore.Controllers
+{
+    [Authorize(Roles = "Admin")]
+    public class CustomersAdminController : BaseController
+    {
+        public CustomersAdminController(IAuthenticationService authenticationService) : base(authenticationService) { }
+        public async Task<IActionResult> GetAllCustomers()
+        {
+            return View();
+        }
+    }
+}

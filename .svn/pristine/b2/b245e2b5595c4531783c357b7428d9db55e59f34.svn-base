@@ -1,0 +1,89 @@
+﻿using AutoMapper;
+using DrugStore.Data;
+using DrugStoreCore.Dto;
+using DrugStoreCore.ViewModel;
+using DrugStoreData.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DrugStoreInfrastructure.Services.Maps
+{
+    public class MapsService : IMapsService
+    {
+        private readonly DrugStoreDbContext _db;
+        public MapsService(DrugStoreDbContext db)
+        {
+            _db = db;
+        }
+        // Get Pharmacys Coordinates
+        public async Task<ResponseViewModel<List<CoordinatesViewModel>>> Coordinates()
+        {
+            var coordinates = await _db.Users.Select(phar => new CoordinatesViewModel
+            {
+                Latitude = phar.Latitude,
+                Longitude = phar.Longitude
+            }).ToListAsync();
+            if (coordinates.Count == 0)
+            {
+                return new ResponseViewModel<List<CoordinatesViewModel>>
+                    (false, "Not Found Any Pharmacys", null);
+            }
+            return new ResponseViewModel<List<CoordinatesViewModel>>
+                    (true, "All Coordinates", coordinates);
+        }
+
+        // Get Pharmacys Information With Coordinates
+        public async Task<ResponseViewModel<List<PharmacyInfoWithCoordinatesViewModel>>> PharmacyInfoWithCoordinates()
+        {
+            var pharmacyInfo = await _db.Users.Include(supplier => supplier.Supplier)
+                                              .Include(pharNote => pharNote.PharmacyNotes)
+                .Select(phar => new PharmacyInfoWithCoordinatesViewModel
+                {
+                    PharmacyId = phar.Id,
+                    PharmacyName = phar.PharmacyName,
+                    SupplierName = phar.Supplier.Name,
+                    Latitude = phar.Latitude,
+                    Longitude = phar.Longitude,
+                    PharmacyNotes = phar.PharmacyNotes.Select(note =>
+                            new PharmacyNotesViewModel { NoteTitle = note.Title, NoteBody = note.Body }).ToList()
+                }).ToListAsync();
+
+
+            if (pharmacyInfo.Count == 0)
+            {
+                return new ResponseViewModel<List<PharmacyInfoWithCoordinatesViewModel>>
+                    (false, "Not Found Any Pharmacys", null);
+            }
+            return new ResponseViewModel<List<PharmacyInfoWithCoordinatesViewModel>>
+                    (true, "All Coordinates", pharmacyInfo);
+        }
+
+        // Add Note To Pharmacy
+        public async Task<ResponseViewModel<PharmacyNotesViewModel>>
+                            AddPharmacyNote(PharmacyNotesViewModel note)
+        {
+            if (note is null || string.IsNullOrEmpty(note.NoteTitle) || string.IsNullOrEmpty(note.NoteBody) || string.IsNullOrEmpty(note.PharmacyId))
+            {
+                return new ResponseViewModel<PharmacyNotesViewModel>
+                 (false, "Error, Note Title And Body Is Required!", null);
+            }
+            var pharmacy = await _db.Users.FindAsync(note.PharmacyId);
+            if (pharmacy is null)
+            {
+                return new ResponseViewModel<PharmacyNotesViewModel>
+                (false, "Error, Pharmacy Not Found!", null);
+            }
+            //await _db.PharmacyNotes.AddAsync(new PharmacyNotes
+            //{ Title = note.NoteTitle, Body = note.NoteBody, PharmacyId = note.PharmacyId });
+            await _db.SaveChangesAsync();
+            return new ResponseViewModel<PharmacyNotesViewModel>
+              (true, "Added Note Succeeded", note);
+        }
+
+    }
+
+}

@@ -1,0 +1,14 @@
+﻿@using DrugStore
+@using DrugStore.Models
+@using DrugStoreData.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+//Start Localization To All Views (Support Multi Languages)
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+@using System.Globalization
+@inject IViewLocalizer localizer
+@inject IOptions<RequestLocalizationOptions> locOptions
+//End Localization To All Views (Support Multi Languages)

@@ -1,0 +1,254 @@
+﻿@section Styles{
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+<!-- Upload Customer Modal  -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">@localizer["Upload Customers"]</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form id="locationData" method="post" enctype="multipart/form-data">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customerFileValue"
+                                   aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Modal footer id="UpdateCustomer" -->
+                <div class="modal-footer upload-pharmacies">
+                    <button type="submit" class="btn btn-primary">@localizer["Upload"]</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">@localizer["Close"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- The Modal To Show Loader -->
+<div class="modal" id="LoaderModal">
+    <div class="modal-dialog">
+        <div class="">
+            <div class="loader"></div>
+            <button class="d-none" type="button" id="closeLaoder" data-dismiss="modal"></button>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="d-none" id="showLaoder" data-toggle="modal" data-target="#LoaderModal">
+</button>
+
+
+
+
+
+
+
+<div class="d-flex justify-content-between pb-2 arabic-Div" style="border-bottom: 2px solid">
+    <div class="font-weight-bolder">
+        @localizer["Customers"]
+    </div>
+
+
+    <div class="custom-control custom-switch">
+        <label class="mr-5 en-label" for="customSwitch1">Table View</label>
+        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+        <label class="custom-control-label en-label" for="customSwitch1">Map View</label>
+    </div>
+
+    <div class="">
+        <button type="button" class="btn btn-primary en-direction" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-upload"></i>
+            @localizer["Upload Customers"]
+        </button>
+    </div>
+</div>
+
+<section id="map" class="mt-4 d-none">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Show Markers
+                </button>
+
+                <div class="dropdown-menu">
+                    <a class="dropdown-item">
+                        <div class="custom-control">
+                            <input type="checkbox" class="custom-control-input" id="AllMarkers" checked>
+                            <label class="custom-control-label" for="AllMarkers">All</label>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <div class="custom-control">
+                            <input type="checkbox" class="custom-control-input" id="CompletedMarkers" checked>
+                            <label class="custom-control-label" for="CompletedMarkers">Completed</label>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="custom-control">
+                            <input type="checkbox" class="custom-control-input" id="PendingMarkers" checked>
+                            <label class="custom-control-label" for="PendingMarkers">Pending</label>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <div class="custom-control">
+                            <input type="checkbox" class="custom-control-input" id="HoldMarkers" checked>
+                            <label class="custom-control-label" for="HoldMarkers">Cancelled</label>
+                        </div>
+                    </a>
+                    @*************@
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <div class="custom-control">
+                            <input type="checkbox" class="custom-control-input" id="SpecialCompanies">
+                            <label class="custom-control-label" for="SpecialCompanies">Special Companies</label>
+                        </div>
+                    </a>
+                    @*************@
+                </div>
+            </div>
+            <div class="form-inline my-2 my-lg-0">
+                <select class="form-control mr-sm-2" style="width: 250px;" id="PharmcySearchMap">
+                    <option value="-1" disabled selected>Search</option>
+                </select>
+            </div>
+        </nav>
+        <div id="AdminMap" style="width: 100%; height: 77.3vh;"></div>
+    </div>
+</section>
+
+<section id="customer-table" class="d-block">
+    <table id="example" class="display  table-responsive-lg" style="width:100%">
+        <thead style="background: #D4EDF9 !important;">
+            <tr>
+                <th>Account Number</th>
+                <th>Pharmacy Name</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+        </thead>
+
+    </table>
+</section>
+
+@section Scripts{
+    <script src="~/js/AdminMap.js" asp-append-version="true" defer></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#PharmcySearchMap").select2();
+            $('#example').DataTable({
+                "ordering": false,//To Remove Sorting
+                "processing": true,
+                "serverSide": true,
+
+                //Disable Search From Table
+                dom: '<"row"lr><"row"<"col-xs-12 col-lg-12"t>><"row"<"col-sm-6"i><"col-sm-6"p>>',
+                language: {
+                    "infoFiltered": ""
+                },//To Remove Filter From Footer
+                ajax: {
+                    //url: 'https://preview.keenthemes.com/metronic/theme/html/tools/preview/api/datatables/demos/server.php',
+                    url: '/DisplayOrders/AllCustomers',
+                    type: 'POST',
+                    dataType: "json",
+                },
+                columns: [
+                    //(orderable: false) Disable Sort In Table
+                    { data: 'accountNumber', name: "Account Numbe", orderable: false },
+                    { data: 'pharmacyName', name: "Pharmacy Name", orderable: false },
+                    { data: 'latitude', name: "Latitude", orderable: false },
+                    { data: 'longitude', name: "Longitude", orderable: false }
+                ],
+            });
+        });
+    </script>
+    @*Add Style To Select Box*@
+    <script>
+        $(document).ready(function () {
+            $("#example_length").addClass('ml-3 mt-4');
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('body').on('change', "#customSwitch1", function () {
+                if (this.checked) {
+                    $("#map").addClass("d-block")
+                    $("#customer-table").addClass("d-none");
+                    $("#customer-table").removeClass("d-block");
+                    $("main").parent().removeClass("container").addClass("container-fluid");
+                    $(".d-flex.justify-content-between.pb-2").addClass("container");
+                }
+
+                if (this.checked != true) {
+                    $("#map").removeClass("d-block");
+                    $("#customer-table").addClass("d-block")
+                    $("main").parent().removeClass("container-fluid").addClass("container")
+                }
+            });
+        });
+
+        //Show File Name When Uploaded
+        $('#customerFileValue').on('change', function (e) {
+            //get the file name
+            var fileName = e.target.files[0].name;
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(fileName);
+        });
+
+        //Upload Customers With Location
+        $("form#locationData").submit(function (e) {
+            e.preventDefault();
+            //Close Modal
+            $(".btn-danger").click();
+            //Show Loader To User
+            $("#showLaoder").click();
+            var formData = new FormData();
+            formData.append("File", $("#customerFileValue").get(0).files[0]);
+            $.ajax({
+                url: "/DisplayOrders/ImportLocationsInfoAsExcel",
+                type: 'POST',
+                data: formData,
+                success: function (data) {
+                    //Hide Loader
+                    $("#closeLaoder").click();
+                    if (data.status)
+                        Swal.fire('Upload Customer Succeeded');
+                    else
+                        Swal.fire('Upload Customer Failed');
+                },
+                error: function () {
+                    //Hide Loader
+                    $("#closeLaoder").click();
+                    Swal.fire('Upload Customer Failed');
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
+    </script>
+}
